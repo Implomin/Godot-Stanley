@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cg3t7pp64w0rv"]
+[gd_scene load_steps=9 format=3 uid="uid://cg3t7pp64w0rv"]
 
 [ext_resource type="Script" path="res://characters/player/player_root.cs" id="1_pormf"]
+[ext_resource type="Resource" uid="uid://bahcjdln5sc23" path="res://characters/player/states/stand.tres" id="2_cyxfh"]
+[ext_resource type="Resource" uid="uid://cegydud2fam0v" path="res://characters/player/states/walk.tres" id="3_iyhnm"]
+[ext_resource type="Resource" uid="uid://gm366v66ex47" path="res://characters/player/states/sprint.tres" id="4_6mth3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tqq0l"]
 
@@ -15,6 +18,11 @@ size = Vector3(0.8, 0.5, 0.5)
 
 [node name="PlayerRoot" type="CharacterBody3D"]
 script = ExtResource("1_pormf")
+movementStates = {
+"sprint": ExtResource("4_6mth3"),
+"stand": ExtResource("2_cyxfh"),
+"walk": ExtResource("3_iyhnm")
+}
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
