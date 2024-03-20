@@ -13,6 +13,7 @@ public partial class PlayerMovementHandler : Node3D
 	[Export] float gravityStrength = 0.5f;
 	[Export] float jumpStrength = 4f;
 	[Export] float jumpAcceleration = 16f;
+	float cameraRotationInternal;
 	private void OnSetMovementState (MovementState movementState)
 	{
 		speed = movementState.movementSpeedModifier * baseMovementSpeed;
@@ -22,7 +23,12 @@ public partial class PlayerMovementHandler : Node3D
 
 	private void OnSetMovementDirection (Vector2 direction)
 	{
-		destDirection = new Vector3(direction.X, 0, direction.Y).Rotated(Vector3.Up, 0/* cameraRotationInternal */);
+		destDirection = new Vector3(direction.X, 0, direction.Y).Rotated(Vector3.Up, cameraRotationInternal);
+	}
+
+	private void OnSetCameraRotation (float cameraRotation)
+	{
+		cameraRotationInternal = cameraRotation;
 	}
 
 	public override void _PhysicsProcess(double delta){

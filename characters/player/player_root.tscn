@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cg3t7pp64w0rv"]
+[gd_scene load_steps=12 format=3 uid="uid://cg3t7pp64w0rv"]
 
 [ext_resource type="Script" path="res://characters/player/PlayerRoot.cs" id="1_ixtfr"]
 [ext_resource type="Resource" uid="uid://bahcjdln5sc23" path="res://characters/player/states/stand.tres" id="2_cyxfh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://cegydud2fam0v" path="res://characters/player/states/walk.tres" id="3_iyhnm"]
 [ext_resource type="Resource" uid="uid://gm366v66ex47" path="res://characters/player/states/sprint.tres" id="4_6mth3"]
 [ext_resource type="Resource" uid="uid://cgaggijfotbq6" path="res://characters/player/states/airborne.tres" id="5_alcpa"]
+[ext_resource type="Script" path="res://characters/player/PlayerCameraHandler.cs" id="7_84euo"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_oh4tm"]
 
@@ -38,6 +39,12 @@ script = ExtResource("2_lfw4o")
 playerCharacter = NodePath("..")
 jumpStrength = 10.0
 
+[node name="cameraHandler" type="Node3D" parent="."]
+script = ExtResource("7_84euo")
+
+[node name="Camera3D" type="Camera3D" parent="cameraHandler"]
+transform = Transform3D(-1, 7.61939e-09, -8.70901e-08, -1.84e-08, 0.955536, 0.294874, 8.54645e-08, 0.294874, -0.955536, 0, 2.8426, -4.22173)
+
 [node name="meshHandler" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="meshHandler"]
@@ -48,10 +55,6 @@ mesh = SubResource("CylinderMesh_5cqhn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.3)
 mesh = SubResource("BoxMesh_cboc7")
 
-[node name="cameraHandler" type="Node3D" parent="."]
-
-[node name="Camera3D" type="Camera3D" parent="cameraHandler"]
-transform = Transform3D(-1, 7.6194e-09, -8.70901e-08, 0, 0.996195, 0.0871557, 8.74228e-08, 0.0871557, -0.996195, 0, 2, -8)
-
 [connection signal="SetMovementDirection" from="." to="movementHandler" method="OnSetMovementDirection"]
 [connection signal="SetMovementState" from="." to="movementHandler" method="OnSetMovementState"]
+[connection signal="SetCameraRotation" from="cameraHandler" to="movementHandler" method="OnSetCameraRotation"]

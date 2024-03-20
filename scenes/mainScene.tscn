@@ -29,4 +29,3 @@ shadow_enabled = true
 
 [node name="PlayerRoot" parent="." instance=ExtResource("2_fp1xm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00627613, 9.53674e-07, 0.000921726)
-sprintMultiplier = null
