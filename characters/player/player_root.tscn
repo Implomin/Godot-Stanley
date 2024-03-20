@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg3t7pp64w0rv"]
+
+[ext_resource type="Script" path="res://characters/player/player_root.cs" id="1_pormf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tqq0l"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xskji"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rb3h8"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cboc7"]
+material = SubResource("StandardMaterial3D_rb3h8")
+size = Vector3(0.8, 0.5, 0.5)
+
+[node name="PlayerRoot" type="CharacterBody3D"]
+script = ExtResource("1_pormf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_tqq0l")
+
+[node name="movementHandler" type="Node3D" parent="."]
+
+[node name="meshHandler" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="meshHandler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_xskji")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="meshHandler/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.3)
+mesh = SubResource("BoxMesh_cboc7")
+
+[node name="cameraHandler" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="cameraHandler"]
+transform = Transform3D(-1, 7.6194e-09, -8.70901e-08, 0, 0.996195, 0.0871557, 8.74228e-08, 0.0871557, -0.996195, 0, 2, -8)
