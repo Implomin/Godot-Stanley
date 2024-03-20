@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 [GlobalClass]
-public partial class movementState : Resource
+public partial class MovementState : Resource
 {
     [Export] public int id;
     [Export] public float acceleration;

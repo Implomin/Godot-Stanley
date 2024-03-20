@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://cg3t7pp64w0rv"]
+[gd_scene load_steps=11 format=3 uid="uid://cg3t7pp64w0rv"]
 
-[ext_resource type="Script" path="res://characters/player/player_root.cs" id="1_pormf"]
+[ext_resource type="Script" path="res://characters/player/PlayerRoot.cs" id="1_ixtfr"]
 [ext_resource type="Resource" uid="uid://bahcjdln5sc23" path="res://characters/player/states/stand.tres" id="2_cyxfh"]
+[ext_resource type="Script" path="res://characters/player/PlayerMovementHandler.cs" id="2_lfw4o"]
 [ext_resource type="Resource" uid="uid://cegydud2fam0v" path="res://characters/player/states/walk.tres" id="3_iyhnm"]
 [ext_resource type="Resource" uid="uid://gm366v66ex47" path="res://characters/player/states/sprint.tres" id="4_6mth3"]
+[ext_resource type="Resource" uid="uid://cgaggijfotbq6" path="res://characters/player/states/airborne.tres" id="5_alcpa"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tqq0l"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_oh4tm"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_xskji"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_5cqhn"]
+radial_segments = 12
+rings = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rb3h8"]
 albedo_color = Color(1, 0, 0, 1)
@@ -17,8 +21,9 @@ material = SubResource("StandardMaterial3D_rb3h8")
 size = Vector3(0.8, 0.5, 0.5)
 
 [node name="PlayerRoot" type="CharacterBody3D"]
-script = ExtResource("1_pormf")
+script = ExtResource("1_ixtfr")
 movementStates = {
+"airborne": ExtResource("5_alcpa"),
 "sprint": ExtResource("4_6mth3"),
 "stand": ExtResource("2_cyxfh"),
 "walk": ExtResource("3_iyhnm")
@@ -26,15 +31,18 @@ movementStates = {
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_tqq0l")
+shape = SubResource("CylinderShape3D_oh4tm")
 
-[node name="movementHandler" type="Node3D" parent="."]
+[node name="movementHandler" type="Node3D" parent="." node_paths=PackedStringArray("playerCharacter")]
+script = ExtResource("2_lfw4o")
+playerCharacter = NodePath("..")
+jumpStrength = 10.0
 
 [node name="meshHandler" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="meshHandler"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_xskji")
+mesh = SubResource("CylinderMesh_5cqhn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="meshHandler/MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.3)
@@ -44,3 +52,6 @@ mesh = SubResource("BoxMesh_cboc7")
 
 [node name="Camera3D" type="Camera3D" parent="cameraHandler"]
 transform = Transform3D(-1, 7.6194e-09, -8.70901e-08, 0, 0.996195, 0.0871557, 8.74228e-08, 0.0871557, -0.996195, 0, 2, -8)
+
+[connection signal="SetMovementDirection" from="." to="movementHandler" method="OnSetMovementDirection"]
+[connection signal="SetMovementState" from="." to="movementHandler" method="OnSetMovementState"]
