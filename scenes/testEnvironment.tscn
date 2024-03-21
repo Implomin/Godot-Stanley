@@ -8,3 +8,8 @@
 transform = Transform3D(20, 0, 0, 0, 10, 0, 0, 0, 20, 0, -5, 0)
 use_collision = true
 material = ExtResource("1_4ui6o")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1.94092, 0, 0.482523, 0, 1, 0, -0.482523, 0, 1.94092, 2.08171, 0.5, -2.79061)
+material_override = ExtResource("1_4ui6o")
+use_collision = true

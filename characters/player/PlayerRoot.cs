@@ -44,6 +44,7 @@ public partial class PlayerRoot : CharacterBody3D
 			if (DirectionalMovementKeyPressed()){
 				if (Input.IsActionPressed("movement_sprint")){
 					EmitSignal(SignalName.SetMovementState, movementStates["sprint"]);
+					GD.Print("sprinting");
 				}
 				else{
 					EmitSignal(SignalName.SetMovementState, movementStates["walk"]);

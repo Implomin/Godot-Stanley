@@ -18,7 +18,7 @@ public partial class PlayerMovementHandler : Node3D
 	{
 		speed = movementState.movementSpeedModifier * baseMovementSpeed;
 		acceleration = movementState.acceleration;
-		GD.Print(movementState.id);
+		//GD.Print(movementState.id);
 	}
 
 	private void OnSetMovementDirection (Vector2 direction)
@@ -39,7 +39,7 @@ public partial class PlayerMovementHandler : Node3D
 		ApplyGravity(isGrounded, (float)delta);
 
  		if(Input.IsActionJustPressed("movement_jump") && isGrounded){
-			GD.Print("jump");
+			//GD.Print("jump");
 			medianVelocity.Y = jumpStrength * 10;
 		}
 
