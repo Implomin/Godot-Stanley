@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MovementState" load_steps=2 format=3 uid="uid://gm366v66ex47"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://gm366v66ex47"]
 
 [ext_resource type="Script" path="res://characters/player/states/MovementState.cs" id="1_op6ry"]
 
