@@ -5,6 +5,8 @@ public partial class SaveLogic : Node
 {
 	[Export] CharacterBody3D player;
 	[Export] Node3D cameraNode;
+	[Export] int randomnessFactor = 10;
+	Random random = new Random();
 
 	float startRotation = 0;
 	float rotated;
@@ -13,7 +15,7 @@ public partial class SaveLogic : Node
 	[Export] int singleArrayDataLimit = 10;
 	int increment = 0;
 
-	[Signal] public delegate void SendDataToParserEventHandler(String[] data);
+	[Signal] public delegate void SendDataToLogicHandlerEventHandler(String[] data);
 
 	public override void _Ready()
 	{
@@ -45,8 +47,10 @@ public partial class SaveLogic : Node
 				}
 			}else{
 				//GD.Print(savedData);
+				if(random.Next(1, randomnessFactor) <= 1){
+					EmitSignal(SignalName.SendDataToLogicHandler, savedData);
+				}
 				increment = 0;
-				EmitSignal(SignalName.SendDataToParser, savedData);
 			}
 		}
 	}

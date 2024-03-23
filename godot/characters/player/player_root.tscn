@@ -1,23 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://cg3t7pp64w0rv"]
+[gd_scene load_steps=13 format=3 uid="uid://cg3t7pp64w0rv"]
 
 [ext_resource type="Script" path="res://characters/player/PlayerRoot.cs" id="1_ixtfr"]
 [ext_resource type="Resource" uid="uid://bahcjdln5sc23" path="res://characters/player/states/stand.tres" id="2_cyxfh"]
 [ext_resource type="Script" path="res://characters/player/PlayerMovementHandler.cs" id="2_lfw4o"]
-[ext_resource type="Script" path="res://characters/player/states/MovementState.cs" id="3_ejuno"]
+[ext_resource type="Resource" uid="uid://gm366v66ex47" path="res://characters/player/states/sprint.tres" id="3_37v3v"]
 [ext_resource type="Resource" uid="uid://cegydud2fam0v" path="res://characters/player/states/walk.tres" id="3_iyhnm"]
 [ext_resource type="Resource" uid="uid://cgaggijfotbq6" path="res://characters/player/states/airborne.tres" id="5_alcpa"]
 [ext_resource type="Script" path="res://characters/player/PlayerCameraHandler.cs" id="7_84euo"]
 [ext_resource type="Script" path="res://characters/player/SaveLogic.cs" id="8_e22it"]
-[ext_resource type="Script" path="res://characters/player/PromptParser.cs" id="9_r5ohk"]
 
-[sub_resource type="Resource" id="Resource_o5qub"]
-script = ExtResource("3_ejuno")
-id = 2
-acceleration = 16.0
-movementSpeedModifier = 1.3
-fovModifier = 1.06
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_oh4tm"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qjbrm"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_5cqhn"]
 radial_segments = 12
@@ -34,19 +26,20 @@ size = Vector3(0.8, 0.5, 0.5)
 script = ExtResource("1_ixtfr")
 movementStates = {
 "airborne": ExtResource("5_alcpa"),
-"sprint": SubResource("Resource_o5qub"),
+"sprint": ExtResource("3_37v3v"),
 "stand": ExtResource("2_cyxfh"),
 "walk": ExtResource("3_iyhnm")
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CylinderShape3D_oh4tm")
+shape = SubResource("CapsuleShape3D_qjbrm")
 
 [node name="movementHandler" type="Node3D" parent="." node_paths=PackedStringArray("playerCharacter")]
 script = ExtResource("2_lfw4o")
 playerCharacter = NodePath("..")
-jumpStrength = 10.0
+jumpStrength = 16.0
+jumpAcceleration = 8.0
 
 [node name="cameraHandler" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
@@ -71,10 +64,6 @@ script = ExtResource("8_e22it")
 player = NodePath("..")
 cameraNode = NodePath("../cameraHandler")
 
-[node name="Node" type="Node" parent="logicHandler"]
-script = ExtResource("9_r5ohk")
-
 [connection signal="SetMovementDirection" from="." to="movementHandler" method="OnSetMovementDirection"]
 [connection signal="SetMovementState" from="." to="movementHandler" method="OnSetMovementState"]
 [connection signal="SetCameraRotation" from="cameraHandler" to="movementHandler" method="OnSetCameraRotation"]
-[connection signal="SendDataToParser" from="logicHandler" to="logicHandler/Node" method="OnSendDataToParser"]

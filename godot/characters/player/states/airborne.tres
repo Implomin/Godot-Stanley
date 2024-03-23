@@ -1,10 +1,10 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cgaggijfotbq6"]
+[gd_resource type="Resource" script_class="MovementState" load_steps=2 format=3 uid="uid://cgaggijfotbq6"]
 
 [ext_resource type="Script" path="res://characters/player/states/MovementState.cs" id="1_2oqk5"]
 
 [resource]
 script = ExtResource("1_2oqk5")
 id = 3
-acceleration = 4.0
-movementSpeedModifier = 2.0
+acceleration = 1.0
+movementSpeedModifier = 3.0
 fovModifier = 1.1

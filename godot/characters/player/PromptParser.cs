@@ -7,10 +7,10 @@ public partial class PromptParser : Node
 	String currentPrompt;
 	private void OnSendDataToParser(String[] data)
 	{
-		GD.Print(parseElements(data));
+		GD.Print(ParseElements(data));
 	}
 
-	public String parseElements(String[] data){
+	public string ParseElements(String[] data){
 		for(int i = 0; i < data.Length; i++){
 			if(data[i] == "right"){
 				currentPrompt += "player turned right, ";

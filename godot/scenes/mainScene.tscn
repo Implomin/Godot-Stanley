@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://5xkbprsot27e"]
+[gd_scene load_steps=8 format=3 uid="uid://5xkbprsot27e"]
 
 [ext_resource type="PackedScene" uid="uid://ffvyutrktanf" path="res://scenes/testEnvironment.tscn" id="1_d8wmk"]
 [ext_resource type="PackedScene" uid="uid://cg3t7pp64w0rv" path="res://characters/player/player_root.tscn" id="2_fp1xm"]
+[ext_resource type="PackedScene" uid="uid://hr2tbs8b3sr3" path="res://environment/modular/arrivedAt.tscn" id="3_udp80"]
+[ext_resource type="PackedScene" uid="uid://3c3kddccavy2" path="res://characters/narrator/narratorLogic.tscn" id="4_fasj4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kbxr7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -22,10 +24,36 @@ environment = SubResource("Environment_lbcrp")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-light_energy = 0.3
 shadow_enabled = true
 
 [node name="EnvironmentRoot" parent="." instance=ExtResource("1_d8wmk")]
 
 [node name="PlayerRoot" parent="." instance=ExtResource("2_fp1xm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00627613, 9.53674e-07, 0.000921726)
+
+[node name="SignalArrivedAt" parent="." instance=ExtResource("3_udp80")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.95167, -4.76837e-07, -0.393939)
+arrivedAtContent = "testing"
+
+[node name="SignalArrivedAt2" parent="." instance=ExtResource("3_udp80")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4772, -4.76837e-07, 3.87742)
+arrivedAtContent = "arrived at ramp"
+
+[node name="SignalArrivedAt3" parent="." instance=ExtResource("3_udp80")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91211, -4.76837e-07, 4.18697)
+arrivedAtContent = "arrived at cube"
+
+[node name="SignalArrivedAt4" parent="." instance=ExtResource("3_udp80")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69527, -4.76837e-07, 7.75747)
+arrivedAtContent = "arrived at physics"
+
+[node name="NarratorLogic" parent="." instance=ExtResource("4_fasj4")]
+
+[connection signal="SendArrivedAt" from="SignalArrivedAt" to="NarratorLogic" method="OnSignalRecieved"]
+[connection signal="SendArrivedAtImportant" from="SignalArrivedAt" to="NarratorLogic" method="OnImportantSignalRecieved"]
+[connection signal="SendArrivedAt" from="SignalArrivedAt2" to="NarratorLogic" method="OnSignalRecieved"]
+[connection signal="SendArrivedAtImportant" from="SignalArrivedAt2" to="NarratorLogic" method="OnImportantSignalRecieved"]
+[connection signal="SendArrivedAt" from="SignalArrivedAt3" to="NarratorLogic" method="OnSignalRecieved"]
+[connection signal="SendArrivedAtImportant" from="SignalArrivedAt3" to="NarratorLogic" method="OnImportantSignalRecieved"]
+[connection signal="SendArrivedAt" from="SignalArrivedAt4" to="NarratorLogic" method="OnSignalRecieved"]
+[connection signal="SendArrivedAtImportant" from="SignalArrivedAt4" to="NarratorLogic" method="OnImportantSignalRecieved"]

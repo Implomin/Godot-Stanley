@@ -22,7 +22,7 @@ public partial class PlayerRoot : CharacterBody3D
         EmitSignal(SignalName.SetMovementState, movementStates["stand"]);
     }
 	
-	public override void _PhysicsProcess (double delta)
+	public override void _Process (double delta)
 	{
 		inputVector = Input.GetVector("movement_right", "movement_left", "movement_down", "movement_up");
 		EmitSignal(SignalName.SetMovementDirection, inputVector);
@@ -44,12 +44,13 @@ public partial class PlayerRoot : CharacterBody3D
 			if (DirectionalMovementKeyPressed()){
 				if (Input.IsActionPressed("movement_sprint")){
 					EmitSignal(SignalName.SetMovementState, movementStates["sprint"]);
-					GD.Print("sprinting");
 				}
 				else{
 					EmitSignal(SignalName.SetMovementState, movementStates["walk"]);
 				}
-			}
+			}else{
+			EmitSignal(SignalName.SetMovementState, movementStates["stand"]);
+		}
 		}else{
 			EmitSignal(SignalName.SetMovementState, movementStates["stand"]);
 		}

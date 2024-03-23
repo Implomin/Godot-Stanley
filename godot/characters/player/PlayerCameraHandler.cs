@@ -27,8 +27,8 @@ public partial class PlayerCameraHandler : Node3D
 		}
     }
 
-	public override void _PhysicsProcess(double delta){
-		Rotation = new Vector3(Mathf.Lerp(Rotation.X, pitch, (float)delta*pitchAcceleration), -Mathf.Lerp(Rotation.Y, yaw, (float)delta*yawAcceleration), 0);
+	public override void _Process(double delta){
+		Rotation = new Vector3(pitch, -yaw, 0);
 		EmitSignal(SignalName.SetCameraRotation, Rotation.Y);
 	}
 }

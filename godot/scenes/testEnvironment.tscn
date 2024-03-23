@@ -1,15 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://ffvyutrktanf"]
+[gd_scene load_steps=6 format=3 uid="uid://ffvyutrktanf"]
 
 [ext_resource type="Material" uid="uid://c4vq4enevd0c5" path="res://environment/median/tileMaterial.tres" id="1_4ui6o"]
+[ext_resource type="Material" uid="uid://dviaupps4ckjg" path="res://environment/median/tileMaterial2.tres" id="1_mi1kn"]
+[ext_resource type="Material" uid="uid://baacwtgp6s0yo" path="res://environment/median/tileMaterial3.tres" id="3_lce25"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_kdbxt"]
+left_to_right = 0.0
+size = Vector3(2, 1, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_14l70"]
 
 [node name="EnvironmentRoot" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(20, 0, 0, 0, 10, 0, 0, 0, 20, 0, -5, 0)
+transform = Transform3D(40, 0, 0, 0, 5, 0, 0, 0, 40, 0, -2.5, 0)
 use_collision = true
 material = ExtResource("1_4ui6o")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1.94092, 0, 0.482523, 0, 1, 0, -0.482523, 0, 1.94092, 2.08171, 0.5, -2.79061)
-material_override = ExtResource("1_4ui6o")
+transform = Transform3D(1.3991, 0, 1.42917, 0, 1, 0, -1.42917, 0, 1.3991, -4.6096, 0.499999, 3.57921)
+material_override = ExtResource("1_mi1kn")
 use_collision = true
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(-0.865903, 0, 0.500212, 0, 1, 0, -0.500212, 0, -0.865903, 2.81024, 0.500001, 3.78654)
+material_override = ExtResource("1_mi1kn")
+use_collision = true
+mesh = SubResource("PrismMesh_kdbxt")
+
+[node name="PhysicsBox" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.552536, 1, 6.86956)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicsBox"]
+shape = SubResource("BoxShape3D_14l70")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="PhysicsBox"]
+material_override = ExtResource("3_lce25")
+
+[node name="PhysicsBox2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12333, 2.52856, 6.7231)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicsBox2"]
+shape = SubResource("BoxShape3D_14l70")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="PhysicsBox2"]
+material_override = ExtResource("3_lce25")
