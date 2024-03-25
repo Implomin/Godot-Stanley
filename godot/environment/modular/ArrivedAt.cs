@@ -10,7 +10,7 @@ public partial class ArrivedAt : Area3D
 
 	public void _OnBodyEntered(Godot.CharacterBody3D body)
 	{
-		GD.Print("Player - body entered arrivedAt; Sending signal to corresponding node");
+		//GD.Print("Player - body entered arrivedAt; Sending signal to corresponding node");
 		if(important){
 			EmitSignal(SignalName.SendArrivedAtImportant, arrivedAtContent);
 		}else{

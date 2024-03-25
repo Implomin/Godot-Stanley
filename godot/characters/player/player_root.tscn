@@ -23,6 +23,7 @@ material = SubResource("StandardMaterial3D_rb3h8")
 size = Vector3(0.8, 0.5, 0.5)
 
 [node name="PlayerRoot" type="CharacterBody3D"]
+collision_layer = 3
 script = ExtResource("1_ixtfr")
 movementStates = {
 "airborne": ExtResource("5_alcpa"),
@@ -63,6 +64,8 @@ mesh = SubResource("BoxMesh_cboc7")
 script = ExtResource("8_e22it")
 player = NodePath("..")
 cameraNode = NodePath("../cameraHandler")
+randomnessFactor = 1
+singleArrayDataLimit = 3
 
 [connection signal="SetMovementDirection" from="." to="movementHandler" method="OnSetMovementDirection"]
 [connection signal="SetMovementState" from="." to="movementHandler" method="OnSetMovementState"]

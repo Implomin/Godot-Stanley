@@ -34,6 +34,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00627613, 9.53674e-07, 0.00
 [node name="SignalArrivedAt" parent="." instance=ExtResource("3_udp80")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.95167, -4.76837e-07, -0.393939)
 arrivedAtContent = "testing"
+important = true
 
 [node name="SignalArrivedAt2" parent="." instance=ExtResource("3_udp80")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4772, -4.76837e-07, 3.87742)

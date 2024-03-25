@@ -26,7 +26,7 @@ public partial class SaveLogic : Node
 	{
 		if (Engine.GetPhysicsFrames() % 120 == 0){
 			rotated = startRotation - cameraNode.Rotation.Y;
-			GD.Print("rotated: " + rotated);
+			//GD.Print("rotated: " + rotated);
 			startRotation = cameraNode.Rotation.Y;
 			if(singleArrayDataLimit > increment){
 				//TODO handle external signals when player reaches a specific point / some action takes place
