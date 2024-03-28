@@ -1,0 +1,1 @@
+/Users/jakubciszak/Studium/MM/Godot-Stanley/voiceover/target/debug/Godot-Stanley: /Users/jakubciszak/Studium/MM/Godot-Stanley/voiceover/src/action.rs /Users/jakubciszak/Studium/MM/Godot-Stanley/voiceover/src/main.rs
