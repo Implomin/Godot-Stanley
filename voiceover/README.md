@@ -55,3 +55,21 @@ Predefined actions: [TURN, SEE, PICK, STAND, WALK, OTHER]
   ]
 }
 ```
+
+
+### UPDATE 08.04.2024
+
+- Right now you can test API endpoint POST (http:localhost:5051) with 6 defined actions (see server/action.rs)
+- Make sure you have ollama ready to serve and have downloaded tinydolphin
+```bash
+cd ./voiceover
+cargo run
+```
+- Example of a curl:
+```bash
+curl --location '127.0.0.1:5051' \
+--header 'Content-Type: application/json' \
+--data '{"action":"TURN", "value": "left"}'
+```
+
+TODO: add option to pass many actions, rewrite it in go or java because it is getting quite annoying :)
