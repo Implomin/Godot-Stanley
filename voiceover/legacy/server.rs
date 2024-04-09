@@ -1,6 +1,6 @@
 use std::{
     io::{Read, Write},
-    net::TcpStream,
+    net::TcpStream, process::{Child, Command},
 };
 mod action;
 mod ollama_response;
@@ -60,6 +60,7 @@ pub(crate) fn handle_client(mut stream: TcpStream) {
     let res: ollama_response::OllamaResponse =
         serde_json::from_str(&binding).expect("COULD NOT PARSE OLLAMA REPSONSE ");
     println!("{}", res.response);
+    delegate_to_TTY(&res.response);
     stream
         .write(responseHttp(&res.response, "200", "application/json").as_bytes())
         .expect("Failed sending a response");
@@ -68,6 +69,22 @@ pub(crate) fn handle_client(mut stream: TcpStream) {
 fn responseHttp(body : &str, code : &str, content_type : &str) -> String {
     return format!("{}", format_args!("HTTP/1.1 {}\nContent-Type: {}\n\n{{\"prompt\": \"{}\"}}", code, content_type, body.replace("\"", "\\\"")))
 }
+// tts --text "Example string." --model_name "tts_models/multilingual/multi-dataset/your_tts" --speaker_wav=resources/inputs/output.wav  --language_idx=en --out_path resources/outputs/speech.wav
+fn delegate_to_TTY(prompt: &str) -> Child {
+    Command::new("tts")
+    .arg("--text")
+    .arg(prompt)
+    .arg("--model_name")
+    .arg("tts_models/multilingual/multi-dataset/your_tts")
+    .arg("--speaker_wav=resources/inputs/output.wav")
+    .arg("--language_idx=en")
+    .arg("--out_path")
+    .arg("resources/outputs/speech.wav")
+    .spawn()
+    .expect("COULD NOT RUN TTY COMMAND")
+}
+
+
 
 fn generate_prompt(prompt: &str) -> String {
     print!("{}", format_args!("HTTP/1.1 200 OK\n\n{}", prompt));

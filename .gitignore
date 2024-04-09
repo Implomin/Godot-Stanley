@@ -1,1 +1,6 @@
-/target
+# Godot 4+ specific ignores
+.DS_STORE
+.godot/
+voiceover/.DS_Store
+voiceover/target/
+voiceover/resources/outputs/*
