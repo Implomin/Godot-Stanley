@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ffvyutrktanf"]
+[gd_scene load_steps=7 format=3 uid="uid://ffvyutrktanf"]
 
 [ext_resource type="Material" uid="uid://c4vq4enevd0c5" path="res://environment/median/tileMaterial.tres" id="1_4ui6o"]
 [ext_resource type="Material" uid="uid://dviaupps4ckjg" path="res://environment/median/tileMaterial2.tres" id="1_mi1kn"]
+[ext_resource type="Script" path="res://scenes/PhysicsBox.cs" id="3_kk88d"]
 [ext_resource type="Material" uid="uid://baacwtgp6s0yo" path="res://environment/median/tileMaterial3.tres" id="3_lce25"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_kdbxt"]
@@ -30,6 +31,7 @@ mesh = SubResource("PrismMesh_kdbxt")
 
 [node name="PhysicsBox" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.552536, 1, 6.86956)
+script = ExtResource("3_kk88d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicsBox"]
 shape = SubResource("BoxShape3D_14l70")

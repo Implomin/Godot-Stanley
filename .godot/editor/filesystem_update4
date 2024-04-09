@@ -1,0 +1,10 @@
+res://characters/player/player_root.tscn
+res://environment/median/tileMaterial.tres
+res://characters/player/PlayerCameraHandler.cs
+res://characters/player/PlayerMovementHandler.cs
+res://characters/player/PlayerRoot.cs
+res://characters/player/saveLogic.cs
+res://characters/player/states/MovementState.cs
+res://scenes/mainScene.tscn
+res://scenes/testEnvironment.tscn
+res://characters/player/PromptParser.cs

@@ -1,11 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://cg3t7pp64w0rv"]
+[gd_scene load_steps=9 format=3 uid="uid://cg3t7pp64w0rv"]
 
 [ext_resource type="Script" path="res://characters/player/PlayerRoot.cs" id="1_ixtfr"]
-[ext_resource type="Resource" uid="uid://bahcjdln5sc23" path="res://characters/player/states/stand.tres" id="2_cyxfh"]
 [ext_resource type="Script" path="res://characters/player/PlayerMovementHandler.cs" id="2_lfw4o"]
-[ext_resource type="Resource" uid="uid://gm366v66ex47" path="res://characters/player/states/sprint.tres" id="3_37v3v"]
-[ext_resource type="Resource" uid="uid://cegydud2fam0v" path="res://characters/player/states/walk.tres" id="3_iyhnm"]
-[ext_resource type="Resource" uid="uid://cgaggijfotbq6" path="res://characters/player/states/airborne.tres" id="5_alcpa"]
 [ext_resource type="Script" path="res://characters/player/PlayerCameraHandler.cs" id="7_84euo"]
 [ext_resource type="Script" path="res://characters/player/SaveLogic.cs" id="8_e22it"]
 
@@ -25,12 +21,6 @@ size = Vector3(0.8, 0.5, 0.5)
 [node name="PlayerRoot" type="CharacterBody3D"]
 collision_layer = 3
 script = ExtResource("1_ixtfr")
-movementStates = {
-"airborne": ExtResource("5_alcpa"),
-"sprint": ExtResource("3_37v3v"),
-"stand": ExtResource("2_cyxfh"),
-"walk": ExtResource("3_iyhnm")
-}
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

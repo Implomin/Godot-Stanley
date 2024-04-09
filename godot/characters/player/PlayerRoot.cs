@@ -11,7 +11,7 @@ public partial class PlayerRoot : CharacterBody3D
 	[Signal] public delegate void SetMovementStateEventHandler(MovementState movementState);
 	[Signal] public delegate void SetMovementDirectionEventHandler(Vector2 directionVector);
 
-	[Export] Dictionary movementStates;
+	/* [Export]  */private Dictionary movementStates = new Dictionary();
 
 	float sprintingVal = 1;
 	[Export] float sprintMultiplier = 1.3f;
@@ -19,6 +19,11 @@ public partial class PlayerRoot : CharacterBody3D
 
     public override void _Ready()
     {
+		movementStates.Add("stand", Godot.ResourceLoader.Load("characters/player/states/stand.tres"));
+		movementStates.Add("walk", Godot.ResourceLoader.Load("characters/player/states/walk.tres"));
+		movementStates.Add("sprint", Godot.ResourceLoader.Load("characters/player/states/sprint.tres"));
+		movementStates.Add("airborne", Godot.ResourceLoader.Load("characters/player/states/airborne.tres"));
+
         EmitSignal(SignalName.SetMovementState, movementStates["stand"]);
     }
 	

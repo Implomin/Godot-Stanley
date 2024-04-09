@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "hXwA29V/wnsQz59o9jCTiLrP3Cogdjw0qAgjDZjNcJo5dtvzeZRhgg+oazH1hIzP0Xe9cds18P+Jl7T21/vteg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mailj\\Documents\\Code stuff\\Godot\\Stanley\\Godot-Stanley\\Stanley.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mailj\\.nuget\\packages\\godot.sourcegenerators\\4.2.1\\godot.sourcegenerators.4.2.1.nupkg.sha512",
+    "C:\\Users\\mailj\\.nuget\\packages\\godotsharp\\4.2.1\\godotsharp.4.2.1.nupkg.sha512",
+    "C:\\Users\\mailj\\.nuget\\packages\\godotsharpeditor\\4.2.1\\godotsharpeditor.4.2.1.nupkg.sha512",
+    "C:\\Users\\mailj\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.28\\microsoft.netcore.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\mailj\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.28\\microsoft.windowsdesktop.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\mailj\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.28\\microsoft.aspnetcore.app.ref.6.0.28.nupkg.sha512"
+  ],
+  "logs": []
+}

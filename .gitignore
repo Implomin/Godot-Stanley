@@ -3,4 +3,4 @@
 .godot/
 voiceover/.DS_Store
 voiceover/target/
-voiceover/resources/outputs/*
+voiceover/resources/outputs
