@@ -11,7 +11,7 @@ public partial class PlayerRoot : CharacterBody3D
 	[Signal] public delegate void SetMovementStateEventHandler(MovementState movementState);
 	[Signal] public delegate void SetMovementDirectionEventHandler(Vector2 directionVector);
 
-	/* [Export]  */private Dictionary movementStates = new Dictionary();
+	private Dictionary movementStates = new Dictionary();
 
 	float sprintingVal = 1;
 	[Export] float sprintMultiplier = 1.3f;
