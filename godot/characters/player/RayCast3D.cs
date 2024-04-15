@@ -16,16 +16,26 @@ public partial class RayCast3D : Godot.RayCast3D
 			{
 				lookingAtObject.isPickedUp = !lookingAtObject.isPickedUp;
 				GD.Print("Picked up: " + lookingAtObject.isPickedUp);
-				lookingAtObject.LinearVelocity = Vector3.Zero;
+				//lookingAtObject.LinearVelocity = Vector3.Zero;
 			}
 		}else{
 			lookingAtObject.isPickedUp = false;
 		}
 
 		if(lookingAtObject.isPickedUp){
+			lookingAtObject.GravityScale = 0f;
 /* 			lookingAtObject.GlobalPosition = lookingAtObject.GlobalPosition.Lerp(pickUpObjLocation.GlobalPosition, 0.5f);
 			lookingAtObject.GlobalRotation = lookingAtObject.GlobalRotation.Lerp(pickUpObjLocation.GlobalRotation, 0.5f); */
-			lookingAtObject.GlobalTransform = pickUpObjLocation.GlobalTransform;
+			lookingAtObject.LinearVelocity = (pickUpObjLocation.GlobalPosition - lookingAtObject.GlobalPosition)*15;
+			lookingAtObject.AngularVelocity = pickUpObjLocation.GlobalRotation - lookingAtObject.GlobalRotation;
+
+			//lookingAtObject.GlobalRotation = lookingAtObject.GlobalRotation.Lerp(pickUpObjLocation.GlobalRotation, 0.5f);
+
+			//lookingAtObject.GlobalTransform = pickUpObjLocation.GlobalTransform;
+		}
+		else
+		{
+			lookingAtObject.GravityScale = 1f;
 		}
 
 	}
