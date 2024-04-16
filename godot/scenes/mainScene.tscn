@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://5xkbprsot27e"]
+[gd_scene load_steps=9 format=3 uid="uid://5xkbprsot27e"]
 
 [ext_resource type="PackedScene" uid="uid://ffvyutrktanf" path="res://scenes/testEnvironment.tscn" id="1_d8wmk"]
 [ext_resource type="PackedScene" uid="uid://cg3t7pp64w0rv" path="res://characters/player/player_root.tscn" id="2_fp1xm"]
 [ext_resource type="PackedScene" uid="uid://hr2tbs8b3sr3" path="res://environment/modular/arrivedAt.tscn" id="3_udp80"]
 [ext_resource type="PackedScene" uid="uid://3c3kddccavy2" path="res://characters/narrator/narratorLogic.tscn" id="4_fasj4"]
+[ext_resource type="PackedScene" uid="uid://b8d23gf5sjfs" path="res://environment/pickupable/pickupable_base.tscn" id="5_c6xe4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kbxr7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -49,3 +50,6 @@ arrivedAtContent = "arrived at ramp"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.95167, -4.76837e-07, -0.393939)
 arrivedAtContent = "testing"
 important = true
+
+[node name="Node3D" parent="." instance=ExtResource("5_c6xe4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3.08754, 0)
