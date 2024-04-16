@@ -17,15 +17,15 @@ public partial class PlayerRoot : CharacterBody3D
 	[Export] float sprintMultiplier = 1.3f;
 
 
-    public override void _Ready()
-    {
+	public override void _Ready()
+	{
 		movementStates.Add("stand", Godot.ResourceLoader.Load("characters/player/states/stand.tres"));
 		movementStates.Add("walk", Godot.ResourceLoader.Load("characters/player/states/walk.tres"));
 		movementStates.Add("sprint", Godot.ResourceLoader.Load("characters/player/states/sprint.tres"));
 		movementStates.Add("airborne", Godot.ResourceLoader.Load("characters/player/states/airborne.tres"));
 
-        EmitSignal(SignalName.SetMovementState, movementStates["stand"]);
-    }
+		EmitSignal(SignalName.SetMovementState, movementStates["stand"]);
+	}
 	
 	public override void _Process (double delta)
 	{

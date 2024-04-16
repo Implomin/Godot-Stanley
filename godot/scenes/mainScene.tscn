@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://5xkbprsot27e"]
+[gd_scene load_steps=10 format=3 uid="uid://5xkbprsot27e"]
 
 [ext_resource type="PackedScene" uid="uid://ffvyutrktanf" path="res://scenes/testEnvironment.tscn" id="1_d8wmk"]
 [ext_resource type="PackedScene" uid="uid://cg3t7pp64w0rv" path="res://characters/player/player_root.tscn" id="2_fp1xm"]
@@ -17,6 +17,8 @@ sky_material = SubResource("ProceduralSkyMaterial_kbxr7")
 background_mode = 2
 sky = SubResource("Sky_qlu2y")
 tonemap_mode = 2
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_2m5g7"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -51,5 +53,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.95167, -4.76837e-07, -0.393
 arrivedAtContent = "testing"
 important = true
 
+[node name="HTTPRequest" type="HTTPRequest" parent="NarratorLogic"]
+use_threads = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="NarratorLogic"]
+stream = SubResource("AudioStreamWAV_2m5g7")
+volume_db = 1.874
+
 [node name="Node3D" parent="." instance=ExtResource("5_c6xe4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3.08754, 0)
+
+[connection signal="request_completed" from="NarratorLogic/HTTPRequest" to="NarratorLogic" method="_on_http_request_request_completed"]

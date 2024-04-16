@@ -1,5 +1,0 @@
-{
-    "rust-analyzer.linkedProjects": [
-        "./voiceover/Cargo.toml"
-    ]
-}
