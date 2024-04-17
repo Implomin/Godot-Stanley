@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://5xkbprsot27e"]
+[gd_scene load_steps=11 format=3 uid="uid://5xkbprsot27e"]
 
 [ext_resource type="PackedScene" uid="uid://ffvyutrktanf" path="res://scenes/testEnvironment.tscn" id="1_d8wmk"]
 [ext_resource type="PackedScene" uid="uid://cg3t7pp64w0rv" path="res://characters/player/player_root.tscn" id="2_fp1xm"]
 [ext_resource type="PackedScene" uid="uid://hr2tbs8b3sr3" path="res://environment/modular/arrivedAt.tscn" id="3_udp80"]
 [ext_resource type="PackedScene" uid="uid://3c3kddccavy2" path="res://characters/narrator/narratorLogic.tscn" id="4_fasj4"]
-[ext_resource type="PackedScene" uid="uid://b8d23gf5sjfs" path="res://environment/pickupable/pickupable_base.tscn" id="5_c6xe4"]
+[ext_resource type="PackedScene" uid="uid://dux7qnd1ijg0y" path="res://environment/pickupable/pickupable-ber.tscn" id="6_3ymil"]
+[ext_resource type="PackedScene" uid="uid://bn8myhbfa3job" path="res://environment/pickupable/pickupable-test.tscn" id="6_5vf25"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kbxr7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -64,7 +65,13 @@ use_threads = true
 stream = SubResource("AudioStreamWAV_2m5g7")
 volume_db = 1.874
 
-[node name="Node3D" parent="." instance=ExtResource("5_c6xe4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3.08754, 0)
+[node name="pickupable-ber" parent="." instance=ExtResource("6_3ymil")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46251, 0.812061, -3.61941)
+
+[node name="pickupable-test" parent="." instance=ExtResource("6_5vf25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2.59393, -2)
+
+[node name="pickupable-test2" parent="." instance=ExtResource("6_5vf25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0216, 2.59393, -3.04768)
 
 [connection signal="request_completed" from="NarratorLogic/HTTPRequest" to="NarratorLogic" method="_on_http_request_request_completed"]

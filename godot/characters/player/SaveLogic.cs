@@ -3,7 +3,7 @@ using System;
 
 public partial class SaveLogic : Node
 {
-	[Export] CharacterBody3D player;
+	/* [Export] CharacterBody3D player;
 	[Export] Node3D cameraNode;
 	[Export] int randomnessFactor = 10;
 	Random random = new Random();
@@ -13,16 +13,16 @@ public partial class SaveLogic : Node
 	//min 2*length of string as length in seconds, length not added when plater is static
 	String[] savedData;
 	[Export] int singleArrayDataLimit = 10;
-	int increment = 0;
+	int increment = 0; */
 
-	[Signal] public delegate void SendDataToLogicHandlerEventHandler(String[] data);
+	/* [Signal] public delegate void SendDataToLogicHandlerEventHandler(String[] data); */
 
-	public override void _Ready()
+	/* public override void _Ready()
 	{
 		savedData = new String[singleArrayDataLimit];
-	}
+	} */
 
-	public override void _PhysicsProcess(double delta)
+	/* public override void _PhysicsProcess(double delta)
 	{
 		if (Engine.GetPhysicsFrames() % 120 == 0){
 			rotated = startRotation - cameraNode.Rotation.Y;
@@ -30,10 +30,10 @@ public partial class SaveLogic : Node
 			startRotation = cameraNode.Rotation.Y;
 			if(singleArrayDataLimit > increment){
 				//TODO handle external signals when player reaches a specific point / some action takes place
-				/* if(externalEvent){
+				 if(externalEvent){
 					increment++
 				}
-				else */ if(rotated > 1.2)
+				else if(rotated > 1.2)
 				{
 					//GD.Print("rotated right");
 					savedData[increment] = "right";
@@ -53,5 +53,5 @@ public partial class SaveLogic : Node
 				increment = 0;
 			}
 		}
-	}
+	} */
 }

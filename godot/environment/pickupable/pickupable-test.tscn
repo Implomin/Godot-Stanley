@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn8myhbfa3job"]
+
+[ext_resource type="PackedScene" uid="uid://b8d23gf5sjfs" path="res://environment/pickupable/pickupable_base.tscn" id="1_inak3"]
+[ext_resource type="Material" uid="uid://baacwtgp6s0yo" path="res://environment/median/tileMaterial3.tres" id="2_twsd6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u6kdg"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D" parent="." instance=ExtResource("1_inak3")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+material_override = ExtResource("2_twsd6")
+mesh = SubResource("BoxMesh_u6kdg")
