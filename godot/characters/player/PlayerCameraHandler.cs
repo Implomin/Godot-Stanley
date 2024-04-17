@@ -23,7 +23,7 @@ public partial class PlayerCameraHandler : Node3D
 			yaw = Mathf.Wrap(yaw, -180, 180);
 
 			pitch += mouseEvent.Relative.Y * pitchSensitivity;
-			pitch = Mathf.Clamp(pitch, -1f, 1f);
+			pitch = Mathf.Clamp(pitch, -1.5f, 1.5f);
 		}
     }
 

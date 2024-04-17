@@ -38,19 +38,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00627613, 9.53674e-07, 0.00
 
 [node name="SignalArrivedAt4" parent="NarratorLogic" instance=ExtResource("3_udp80")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69527, -4.76837e-07, 7.75747)
-arrivedAtContent = "arrived at physics"
+action = "WALK"
+location = "green cubes"
 
 [node name="SignalArrivedAt3" parent="NarratorLogic" instance=ExtResource("3_udp80")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91211, -4.76837e-07, 4.18697)
-arrivedAtContent = "arrived at cube"
+action = "WALK"
+location = "orange jumping box"
 
 [node name="SignalArrivedAt2" parent="NarratorLogic" instance=ExtResource("3_udp80")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4772, -4.76837e-07, 3.87742)
-arrivedAtContent = "arrived at ramp"
+action = "WALK"
+location = "ramp"
 
 [node name="SignalArrivedAt" parent="NarratorLogic" instance=ExtResource("3_udp80")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.95167, -4.76837e-07, -0.393939)
-arrivedAtContent = "testing"
+action = "WALK"
+location = "testing area"
 important = true
 
 [node name="HTTPRequest" type="HTTPRequest" parent="NarratorLogic"]

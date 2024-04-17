@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8d23gf5sjfs"]
+[gd_scene load_steps=5 format=3 uid="uid://b8d23gf5sjfs"]
 
 [ext_resource type="Script" path="res://Pickupable.cs" id="1_7cd8x"]
+[ext_resource type="Material" uid="uid://baacwtgp6s0yo" path="res://environment/median/tileMaterial3.tres" id="2_p5px7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kfv3q"]
 
@@ -14,4 +15,5 @@ script = ExtResource("1_7cd8x")
 shape = SubResource("BoxShape3D_kfv3q")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_p5px7")
 mesh = SubResource("BoxMesh_eknny")

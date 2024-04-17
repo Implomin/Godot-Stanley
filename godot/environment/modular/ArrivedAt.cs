@@ -4,16 +4,18 @@ using System.Reflection;
 
 public partial class ArrivedAt : Area3D
 {
-	[Export] public string arrivedAtContent = "unexpected";
+	[Export] public string action = "unexpected";
+	[Export] public string location = "unexpected";
+
 	[Export] public bool important = false;
-	[Signal] public delegate void SendArrivedAtEventHandler(String arrivedAtContent);
-	[Signal] public delegate void SendArrivedAtImportantEventHandler(String arrivedAtContent);
+	[Signal] public delegate void SendArrivedAtEventHandler(String action, String location);
+	[Signal] public delegate void SendArrivedAtImportantEventHandler(String action, String location);
 
 	public override void _Ready()
 	{
 		NarratorLogicComponent narrator = GetParent<NarratorLogicComponent>();
-		Connect(SignalName.SendArrivedAtImportant, Callable.From(() => narrator.OnImportantSignalRecieved(arrivedAtContent)));
-		Connect(SignalName.SendArrivedAt, Callable.From(() => narrator.OnSignalRecieved(arrivedAtContent)));
+		Connect(SignalName.SendArrivedAtImportant, Callable.From(() => narrator.OnImportantSignalRecieved(action, location)));
+		Connect(SignalName.SendArrivedAt, Callable.From(() => narrator.OnSignalRecieved(action, location)));
 
 	}
 	public void _OnBodyEntered(Godot.CharacterBody3D body)
