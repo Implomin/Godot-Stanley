@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://5xkbprsot27e"]
+[gd_scene load_steps=15 format=3 uid="uid://5xkbprsot27e"]
 
 [ext_resource type="PackedScene" uid="uid://ffvyutrktanf" path="res://scenes/testEnvironment.tscn" id="1_d8wmk"]
 [ext_resource type="PackedScene" uid="uid://cg3t7pp64w0rv" path="res://characters/player/player_root.tscn" id="2_fp1xm"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://5ac77x6uxeo" path="res://environment/itemAssets/scenes/pickupable/pickupable-puter.tscn" id="7_tdi11"]
 [ext_resource type="PackedScene" uid="uid://bwxewoxxf7wjs" path="res://environment/itemAssets/scenes/pickupable/pickupable-table.tscn" id="8_q4jmj"]
 [ext_resource type="PackedScene" uid="uid://r0unjfbabodl" path="res://environment/itemAssets/scenes/static/static-printer.tscn" id="9_bsfnk"]
+[ext_resource type="PackedScene" uid="uid://balrbttwix8q5" path="res://environment/itemAssets/scenes/pickupable/pickupable-chair.tscn" id="10_ppxqn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kbxr7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -85,5 +86,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82571, 0.593966, 0.28967)
 
 [node name="printer" parent="." instance=ExtResource("9_bsfnk")]
 transform = Transform3D(-0.835721, 0, 0.549154, 0, 1, 0, -0.549154, 0, -0.835721, -9.036, 0, 2.027)
+
+[node name="pickupable-chair" parent="." instance=ExtResource("10_ppxqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40545, 1.21494, -1.7636)
 
 [connection signal="request_completed" from="NarratorLogic/HTTPRequest" to="NarratorLogic" method="_on_http_request_request_completed"]

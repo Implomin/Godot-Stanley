@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://balrbttwix8q5"]
+
+[ext_resource type="Script" path="res://environment/itemAssets/scenes/Pickupable.cs" id="1_5nkxo"]
+[ext_resource type="PackedScene" uid="uid://dtfrv0evf8dhq" path="res://environment/itemAssets/assets/chair/chair.glb" id="2_jtjg6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hh2k8"]
+size = Vector3(0.835, 1.304, 0.247)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kfv3q"]
+size = Vector3(1.2, 1.13071, 1.172)
+
+[node name="pickupable_chair" type="RigidBody3D"]
+collision_layer = 5
+script = ExtResource("1_5nkxo")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.556638, -0.466675)
+shape = SubResource("BoxShape3D_hh2k8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.650647, 0)
+shape = SubResource("BoxShape3D_kfv3q")
+
+[node name="chair" parent="." instance=ExtResource("2_jtjg6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0273368, 0)
