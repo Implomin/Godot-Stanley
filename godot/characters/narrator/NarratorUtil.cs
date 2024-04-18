@@ -26,5 +26,18 @@ namespace Narrator
 		};
 		return res + "]}";
 	}
+
+    public static void sendRequest(HttpRequest httpRequest, string request) {
+		string BACKEND = "http://localhost:5051/prompt";
+		Error err = httpRequest.Request(
+		BACKEND,
+		new string[]{"Content-Type: application/json"},
+		HttpClient.Method.Post,
+		request
+		);
+		if (err != Error.Ok) {
+			GD.PushError("An error occured: " + err);
+		}
+	}
     }
 }

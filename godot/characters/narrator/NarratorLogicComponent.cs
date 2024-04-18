@@ -9,7 +9,13 @@ public partial class NarratorLogicComponent : Node
 	private bool importantAction = false;
 	private String importantSignalAction = "";
 	private String importantSignalLocation = "";
+	private HttpRequest httpRequest;
 
+	public override void _Ready()
+	{
+		base._Ready();
+		httpRequest = GetNode<HttpRequest>("HTTPRequest");
+	}
 
 	public void OnSignalArrayRevcieved(string[] signal)
 	{
@@ -36,37 +42,23 @@ public partial class NarratorLogicComponent : Node
 		// this may be cool in some cases idk
 	}
 
-
 	public override void _Process(double delta)
 	{
 		if(importantAction){
-			sendRequest("{\"actions\":[{\"action\": \""+importantSignalAction+"\", \"value\":\""+importantSignalLocation+"\"},]}");
+			NarratorUtil.sendRequest(httpRequest, "{\"actions\":[{\"action\": \""+importantSignalAction+"\", \"value\":\""+importantSignalLocation+"\"},]}");
 			GD.Print("The player has " + importantSignalAction + " at " + importantSignalLocation);
 			importantAction = false;
 			
 		}
 		if(playerActions.Count > 6){
 			GD.Print("The player has " + NarratorUtil.allActionsToString(playerActions, playerLocations));
-			sendRequest(NarratorUtil.allActionsToJsonString(playerActions, playerLocations));
+			NarratorUtil.sendRequest(httpRequest, NarratorUtil.allActionsToJsonString(playerActions, playerLocations));
 			playerActions.Clear();
 			playerLocations.Clear();
 		}
 	}
 
-
-	public void sendRequest(string request) {
-		string BACKEND = "http://localhost:5051/prompt";
-		HttpRequest httpRequest = GetNode<HttpRequest>("HTTPRequest");
-		Error err = httpRequest.Request(
-		BACKEND,
-		new string[]{"Content-Type: application/json"},
-		HttpClient.Method.Post,
-		request
-		);
-		if (err != Error.Ok) {
-			GD.PushError("An error occured: " + err);
-		}
-	}
+	
 	private void _on_http_request_request_completed(long result, long response_code, string[] headers, byte[] body)
 	{
 		AudioStreamPlayer audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");

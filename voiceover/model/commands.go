@@ -1,13 +1,14 @@
 package model
 
 type Commands struct {
-	Turn  string
-	Stand string
-	Walk  string
-	Jump  string
-	Other string
+	Turn   string
+	Stand  string
+	Walk   string
+	Jump   string
+	Arrive string
+	Other  string
 }
 
 var Standard_commands Commands = Commands{
-	"turned", "stood", "walked", "jumped", "",
+	"turned", "stood", "walked", "jumped", "arrived", "",
 }
