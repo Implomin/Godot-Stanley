@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ffvyutrktanf"]
+[gd_scene load_steps=8 format=3 uid="uid://ffvyutrktanf"]
 
 [ext_resource type="Material" uid="uid://c4vq4enevd0c5" path="res://environment/median/tileMaterial.tres" id="1_4ui6o"]
 [ext_resource type="Material" uid="uid://dviaupps4ckjg" path="res://environment/median/tileMaterial2.tres" id="1_mi1kn"]
 [ext_resource type="Script" path="res://scenes/PhysicsBox.cs" id="3_kk88d"]
 [ext_resource type="Material" uid="uid://baacwtgp6s0yo" path="res://environment/median/tileMaterial3.tres" id="3_lce25"]
+[ext_resource type="PackedScene" uid="uid://dsdbw6nxnrh64" path="res://environment/median/testenvironment2.tscn" id="5_0adff"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_kdbxt"]
 left_to_right = 0.0
@@ -15,11 +16,12 @@ size = Vector3(2, 1, 3)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(40, 0, 0, 0, 5, 0, 0, 0, 40, 0, -2.5, 0)
+visible = false
 use_collision = true
 material = ExtResource("1_4ui6o")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1.3991, 0, 1.42917, 0, 1, 0, -1.42917, 0, 1.3991, -4.6096, 0.499999, 3.57921)
+transform = Transform3D(1.3991, 0, 1.42917, 0, 1, 0, -1.42917, 0, 1.3991, 2.60787, 0.499999, -2.20602)
 material_override = ExtResource("1_mi1kn")
 use_collision = true
 
@@ -30,7 +32,7 @@ use_collision = true
 mesh = SubResource("PrismMesh_kdbxt")
 
 [node name="PhysicsBox" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.552536, 1, 6.86956)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10122, 1, 7.46271)
 script = ExtResource("3_kk88d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicsBox"]
@@ -40,10 +42,62 @@ shape = SubResource("BoxShape3D_14l70")
 material_override = ExtResource("3_lce25")
 
 [node name="PhysicsBox2" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12333, 2.52856, 6.7231)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.44918, 2.52856, 7.23405)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicsBox2"]
 shape = SubResource("BoxShape3D_14l70")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="PhysicsBox2"]
 material_override = ExtResource("3_lce25")
+
+[node name="testenvironment" parent="." instance=ExtResource("5_0adff")]
+
+[node name="Lights" type="Node" parent="testenvironment"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="testenvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 5.61388, 5.87005, 0)
+light_color = Color(1, 0.815686, 0.733333, 1)
+light_energy = 3.0
+spot_range = 10.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="testenvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -7.35799, 5.87005, 0.597133)
+light_color = Color(1, 0.815686, 0.733333, 1)
+light_energy = 3.0
+spot_range = 10.0
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="testenvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -7.33534, 5.87005, -6.43613)
+light_color = Color(1, 0.815686, 0.733333, 1)
+light_energy = 3.0
+spot_range = 10.0
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="testenvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -5.06927, 5.87005, -11.5576)
+light_color = Color(1, 0.815686, 0.733333, 1)
+light_energy = 3.0
+spot_range = 10.0
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="testenvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 0.754434, 5.87005, -9.87249)
+light_color = Color(1, 0.815686, 0.733333, 1)
+light_energy = 3.0
+spot_range = 10.0
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="testenvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 5.64147, 5.87005, -9.79283)
+light_color = Color(1, 0.815686, 0.733333, 1)
+light_energy = 3.0
+spot_range = 10.0
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="testenvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -3.46602, 5.87005, 9.36517)
+light_color = Color(1, 0.815686, 0.733333, 1)
+light_energy = 3.0
+spot_range = 10.0
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="testenvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -0.224781, 5.87005, -0.11442)
+light_color = Color(1, 0.815686, 0.733333, 1)
+light_energy = 3.0
+spot_range = 10.0
