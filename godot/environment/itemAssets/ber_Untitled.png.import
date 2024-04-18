@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjtca24cnvvgm"
-path.s3tc="res://.godot/imported/ber_Untitled.png-21904ef3322c94a419d78d80620e38e1.s3tc.ctex"
+uid="uid://cmg1egcedlyd3"
+path.s3tc="res://.godot/imported/ber_Untitled.png-2a065d7fd921734c50a3a677e8e10495.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://environment/median/ber_Untitled.png"
-dest_files=["res://.godot/imported/ber_Untitled.png-21904ef3322c94a419d78d80620e38e1.s3tc.ctex"]
+source_file="res://environment/itemAssets/ber_Untitled.png"
+dest_files=["res://.godot/imported/ber_Untitled.png-2a065d7fd921734c50a3a677e8e10495.s3tc.ctex"]
 
 [params]
 

@@ -60,12 +60,8 @@ mesh = SubResource("CylinderMesh_5cqhn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.3)
 mesh = SubResource("BoxMesh_cboc7")
 
-[node name="logicHandler" type="Node" parent="." node_paths=PackedStringArray("player", "cameraNode")]
+[node name="logicHandler" type="Node" parent="."]
 script = ExtResource("8_e22it")
-player = NodePath("..")
-cameraNode = NodePath("../cameraHandler")
-randomnessFactor = 1
-singleArrayDataLimit = 3
 
 [connection signal="SetMovementDirection" from="." to="movementHandler" method="OnSetMovementDirection"]
 [connection signal="SetMovementState" from="." to="movementHandler" method="OnSetMovementState"]
