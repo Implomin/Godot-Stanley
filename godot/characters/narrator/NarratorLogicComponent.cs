@@ -1,17 +1,14 @@
 using Godot;
 using System;
 using System.Collections;
+using Narrator;
 public partial class NarratorLogicComponent : Node
 {
 	private ArrayList playerActions = new ArrayList();
 	private ArrayList playerLocations = new ArrayList();
-
-	//private readonly string BACKEND = "http://localhost:5051/voice";
-	private readonly string BACKEND = "http://localhost:5051/prompt";
-
 	private bool importantAction = false;
-	private string importantSignalAction = "";
-	private string importantSignalLocation = "";
+	private String importantSignalAction = "";
+	private String importantSignalLocation = "";
 
 
 	public void OnSignalArrayRevcieved(string[] signal)
@@ -21,7 +18,7 @@ public partial class NarratorLogicComponent : Node
 		playerLocations.Add(signal);
 	}
 	// Change String to Object with action (enum) and value string
-	public void OnSignalRecieved(String signalAction, string signalLocation)
+	public void OnSignalRecieved(String signalAction, String signalLocation)
 	{
 		GD.Print("Signal: " + signalAction + "/" + signalLocation);
 		playerActions.Add(signalAction);
@@ -29,7 +26,7 @@ public partial class NarratorLogicComponent : Node
 
 	}
 
-	public void OnImportantSignalRecieved(String signalAction, string signalLocation)
+	public void OnImportantSignalRecieved(String signalAction, String signalLocation)
 	{
 		GD.Print("Important signal: " + signalAction + "/" + signalLocation);
 		importantSignalAction = signalAction;
@@ -43,59 +40,33 @@ public partial class NarratorLogicComponent : Node
 	public override void _Process(double delta)
 	{
 		if(importantAction){
-			HttpRequest httpRequest = GetNode<HttpRequest>("HTTPRequest");
-			httpRequest.RequestCompleted += _on_http_request_request_completed;
+			sendRequest("{\"actions\":[{\"action\": \""+importantSignalAction+"\", \"value\":\""+importantSignalLocation+"\"},]}");
 			GD.Print("The player has " + importantSignalAction + " at " + importantSignalLocation);
-				Error err = httpRequest.Request(
-				BACKEND,
-				new string[]{"Content-Type: application/json"},
-				HttpClient.Method.Post,
-				//"{\"actions\":[{\"action\": \""+importantAction+"\", \"value\":\""+importantLocation+"\"}]}"
-				"{\"actions\":[{\"action\": \""+importantSignalAction+"\", \"value\":\""+importantSignalLocation+"\"},]}"
-				);
-				if (err != Error.Ok) {
-					GD.PushError("An error occured: " + err);
-				}
 			importantAction = false;
 			
-		}else{
+		}
 		if(playerActions.Count > 6){
-			HttpRequest httpRequest = GetNode<HttpRequest>("HTTPRequest");
-			httpRequest.RequestCompleted += _on_http_request_request_completed;
-			GD.Print("The player has " + allActionsToString(playerActions, playerLocations));
-				Error err = httpRequest.Request(
-				BACKEND,
-				new string[]{"Content-Type: application/json"},
-				HttpClient.Method.Post,
-				allActionsToJsonString(playerActions, playerLocations)
-				);
-				if (err != Error.Ok) {
-					GD.PushError("An error occured: " + err);
-				}
+			GD.Print("The player has " + NarratorUtil.allActionsToString(playerActions, playerLocations));
+			sendRequest(NarratorUtil.allActionsToJsonString(playerActions, playerLocations));
 			playerActions.Clear();
 			playerLocations.Clear();
 		}
+	}
 
+
+	public void sendRequest(string request) {
+		string BACKEND = "http://localhost:5051/prompt";
+		HttpRequest httpRequest = GetNode<HttpRequest>("HTTPRequest");
+		Error err = httpRequest.Request(
+		BACKEND,
+		new string[]{"Content-Type: application/json"},
+		HttpClient.Method.Post,
+		request
+		);
+		if (err != Error.Ok) {
+			GD.PushError("An error occured: " + err);
 		}
 	}
-
- 	private static String allActionsToJsonString(ArrayList inputActions, ArrayList inputLocations){
-		string res = "{\"actions\":[{\"action\": \""+inputActions[0]+"\", \"value\":\""+inputLocations[0]+"\"}";
-	for(int i = 1; i < inputActions.Count; i++){
-			//res += input[i] + ", ";
-			res += ",{\"action\": \""+inputActions[i]+"\", \"value\":\""+inputLocations[i]+"\"}";
-		};
-		return res + "]}";
-	}
-
-	 	private static String allActionsToString(ArrayList inputActions, ArrayList inputLocations){
-		string res = "";
-	for(int i = 1; i < inputActions.Count; i++){
-			res += inputActions[i] + " at " + inputLocations[i]+", ";
-		};
-		return res + "]}";
-	}
-
 	private void _on_http_request_request_completed(long result, long response_code, string[] headers, byte[] body)
 	{
 		AudioStreamPlayer audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");

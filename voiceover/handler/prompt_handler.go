@@ -41,7 +41,7 @@ func format_prompt(prompt_request model.Prompt_request) []byte {
 		action_list += fmt.Sprintf("%s %s, ", match_command(action.Action), action.Value)
 	}
 
-	prompt := "Make a 30 words, funny, a bit mean, joke about a player who:" + action_list + "."
+	prompt := "You are angry. Your task is to make a SHORT and FUNNY comment. Make fun of an idiot who: " + action_list + "."
 
 	fmt.Println(prompt)
 
