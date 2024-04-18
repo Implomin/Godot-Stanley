@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwxewoxxf7wjs"]
+
+[ext_resource type="Script" path="res://environment/itemAssets/scenes/Pickupable.cs" id="1_r5av1"]
+[ext_resource type="PackedScene" uid="uid://b0xfevqopsk2j" path="res://environment/itemAssets/assets/table/table.glb" id="2_87vlf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sakli"]
+
+[node name="pickupable-table" type="RigidBody3D"]
+collision_layer = 5
+script = ExtResource("1_r5av1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_sakli")
+
+[node name="table" parent="CollisionShape3D" instance=ExtResource("2_87vlf")]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, 0, -0.15044, 0)

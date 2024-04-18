@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8d23gf5sjfs"]
 
-[ext_resource type="Script" path="res://Pickupable.cs" id="1_7cd8x"]
+[ext_resource type="Script" path="res://environment/itemAssets/scenes/Pickupable.cs" id="1_do3j2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kfv3q"]
 
-[node name="Node3D" type="RigidBody3D"]
+[node name="pickupable" type="RigidBody3D"]
 collision_layer = 5
-script = ExtResource("1_7cd8x")
+script = ExtResource("1_do3j2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_kfv3q")

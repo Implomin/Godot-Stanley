@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn8myhbfa3job"]
+
+[ext_resource type="Script" path="res://environment/itemAssets/scenes/Pickupable.cs" id="1_pn2di"]
+[ext_resource type="Material" uid="uid://baacwtgp6s0yo" path="res://environment/median/tileMaterial3.tres" id="2_twsd6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ix8nl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u6kdg"]
+
+[node name="pickupable_test" type="RigidBody3D"]
+collision_layer = 5
+script = ExtResource("1_pn2di")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ix8nl")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CollisionShape3D"]
+material_override = ExtResource("2_twsd6")
+mesh = SubResource("BoxMesh_u6kdg")
+skeleton = NodePath("")

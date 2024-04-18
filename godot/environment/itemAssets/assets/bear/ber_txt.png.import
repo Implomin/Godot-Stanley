@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvobdenh3x2ux"
-path.s3tc="res://.godot/imported/puter_txtcmp.png-ac63f3a7c5a77f85b0d8062b66691988.s3tc.ctex"
+uid="uid://cmg1egcedlyd3"
+path.s3tc="res://.godot/imported/ber_txt.png-d85407b43cf0c3da9508da4ad4846336.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://environment/itemAssets/puter_txtcmp.png"
-dest_files=["res://.godot/imported/puter_txtcmp.png-ac63f3a7c5a77f85b0d8062b66691988.s3tc.ctex"]
+source_file="res://environment/itemAssets/assets/bear/ber_txt.png"
+dest_files=["res://.godot/imported/ber_txt.png-d85407b43cf0c3da9508da4ad4846336.s3tc.ctex"]
 
 [params]
 

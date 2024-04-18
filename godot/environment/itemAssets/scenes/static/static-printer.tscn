@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://r0unjfbabodl"]
+
+[ext_resource type="PackedScene" uid="uid://crkaaedw6ds1s" path="res://environment/itemAssets/assets/printer/printer.glb" id="1_dhn1b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k2nfj"]
+size = Vector3(0.88, 1.08, 1.08)
+
+[node name="static_printer" type="Node3D"]
+
+[node name="printer" parent="." instance=ExtResource("1_dhn1b")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58, 0)
+shape = SubResource("BoxShape3D_k2nfj")

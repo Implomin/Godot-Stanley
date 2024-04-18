@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://5ac77x6uxeo"]
+
+[ext_resource type="Script" path="res://environment/itemAssets/scenes/Pickupable.cs" id="1_uv5hy"]
+[ext_resource type="PackedScene" uid="uid://cq38ro71wq73t" path="res://environment/itemAssets/assets/computer/puter.glb" id="2_8dv6a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ip5oc"]
+size = Vector3(0.935, 0.995, 0.775)
+
+[node name="pickupable_computer" type="RigidBody3D"]
+collision_layer = 5
+script = ExtResource("1_uv5hy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ip5oc")
+
+[node name="puter" parent="CollisionShape3D" instance=ExtResource("2_8dv6a")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
