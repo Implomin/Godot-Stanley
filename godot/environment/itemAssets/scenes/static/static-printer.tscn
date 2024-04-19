@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_k2nfj"]
 size = Vector3(0.88, 1.08, 1.08)
 
-[node name="static_printer" type="Node3D"]
+[node name="printer" type="Node3D"]
 
 [node name="printer" parent="." instance=ExtResource("1_dhn1b")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

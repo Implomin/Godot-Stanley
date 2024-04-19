@@ -1,10 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://ffvyutrktanf"]
+[gd_scene load_steps=16 format=3 uid="uid://ffvyutrktanf"]
 
 [ext_resource type="Material" uid="uid://c4vq4enevd0c5" path="res://environment/median/tileMaterial.tres" id="1_4ui6o"]
 [ext_resource type="Material" uid="uid://dviaupps4ckjg" path="res://environment/median/tileMaterial2.tres" id="1_mi1kn"]
 [ext_resource type="Script" path="res://scenes/PhysicsBox.cs" id="3_kk88d"]
 [ext_resource type="Material" uid="uid://baacwtgp6s0yo" path="res://environment/median/tileMaterial3.tres" id="3_lce25"]
 [ext_resource type="PackedScene" uid="uid://dsdbw6nxnrh64" path="res://environment/median/testenvironment2.tscn" id="5_0adff"]
+[ext_resource type="PackedScene" uid="uid://r0unjfbabodl" path="res://environment/itemAssets/scenes/static/static-printer.tscn" id="6_j5rks"]
+[ext_resource type="PackedScene" uid="uid://7i0fdn4thdgi" path="res://environment/itemAssets/scenes/static/static-snake_1.tscn" id="7_l3v5l"]
+[ext_resource type="PackedScene" uid="uid://du0uwrocb0rsy" path="res://environment/itemAssets/scenes/static/static-bonsai.tscn" id="8_irrbb"]
+[ext_resource type="PackedScene" uid="uid://dux7qnd1ijg0y" path="res://environment/itemAssets/scenes/pickupable/pickupable-ber.tscn" id="9_2k135"]
+[ext_resource type="PackedScene" uid="uid://bn8myhbfa3job" path="res://environment/itemAssets/scenes/pickupable/pickupable-test.tscn" id="10_35hmk"]
+[ext_resource type="PackedScene" uid="uid://5ac77x6uxeo" path="res://environment/itemAssets/scenes/pickupable/pickupable-puter.tscn" id="11_lpcd8"]
+[ext_resource type="PackedScene" uid="uid://bwxewoxxf7wjs" path="res://environment/itemAssets/scenes/pickupable/pickupable-table.tscn" id="12_r3mdi"]
+[ext_resource type="PackedScene" uid="uid://balrbttwix8q5" path="res://environment/itemAssets/scenes/pickupable/pickupable-chair.tscn" id="13_cipi4"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_kdbxt"]
 left_to_right = 0.0
@@ -59,45 +67,84 @@ transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.0030
 light_color = Color(1, 0.815686, 0.733333, 1)
 light_energy = 3.0
 spot_range = 10.0
+spot_angle = 60.0
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="testenvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -7.35799, 5.87005, 0.597133)
 light_color = Color(1, 0.815686, 0.733333, 1)
 light_energy = 3.0
 spot_range = 10.0
+spot_angle = 60.0
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="testenvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -7.33534, 5.87005, -6.43613)
 light_color = Color(1, 0.815686, 0.733333, 1)
 light_energy = 3.0
 spot_range = 10.0
+spot_angle = 60.0
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="testenvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -5.06927, 5.87005, -11.5576)
 light_color = Color(1, 0.815686, 0.733333, 1)
 light_energy = 3.0
 spot_range = 10.0
+spot_angle = 60.0
 
 [node name="SpotLight3D5" type="SpotLight3D" parent="testenvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 0.754434, 5.87005, -9.87249)
 light_color = Color(1, 0.815686, 0.733333, 1)
 light_energy = 3.0
 spot_range = 10.0
+spot_angle = 60.0
 
 [node name="SpotLight3D6" type="SpotLight3D" parent="testenvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 5.64147, 5.87005, -9.79283)
 light_color = Color(1, 0.815686, 0.733333, 1)
 light_energy = 3.0
 spot_range = 10.0
+spot_angle = 60.0
 
 [node name="SpotLight3D7" type="SpotLight3D" parent="testenvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -3.46602, 5.87005, 9.36517)
 light_color = Color(1, 0.815686, 0.733333, 1)
 light_energy = 3.0
 spot_range = 10.0
+spot_angle = 60.0
 
 [node name="SpotLight3D8" type="SpotLight3D" parent="testenvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -0.224781, 5.87005, -0.11442)
 light_color = Color(1, 0.815686, 0.733333, 1)
 light_energy = 3.0
 spot_range = 10.0
+spot_angle = 60.0
+
+[node name="Objects" type="Node" parent="testenvironment"]
+
+[node name="printer" parent="testenvironment/Objects" instance=ExtResource("6_j5rks")]
+transform = Transform3D(-0.346314, 0, 0.938119, 0, 1, 0, -0.938119, 0, -0.346314, -8.87534, 1.19209e-06, 2.76155)
+
+[node name="bonsai2" parent="testenvironment/Objects" instance=ExtResource("8_irrbb")]
+transform = Transform3D(0.984223, 0, -0.17693, 0, 1, 0, 0.17693, 0, 0.984223, 2.69521, 0.999999, -2.73268)
+
+[node name="snake1" parent="testenvironment/Objects" instance=ExtResource("7_l3v5l")]
+transform = Transform3D(0.756356, 0, 0.65416, 0, 1, 0, -0.65416, 0, 0.756356, -5.33574, 9.53674e-07, 0.935539)
+
+[node name="Pickupable" type="Node" parent="testenvironment"]
+
+[node name="pickupable-ber" parent="testenvironment/Pickupable" instance=ExtResource("9_2k135")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00516, 0.812061, -4.25246)
+
+[node name="pickupable-test" parent="testenvironment/Pickupable" instance=ExtResource("10_35hmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4729, 2.59393, -3.86802)
+
+[node name="pickupable-test2" parent="testenvironment/Pickupable" instance=ExtResource("10_35hmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20106, 2.59393, -3.3061)
+
+[node name="pickupable-puter" parent="testenvironment/Pickupable" instance=ExtResource("11_lpcd8")]
+transform = Transform3D(-0.0376553, 0, 0.999291, 0, 1, 0, -0.999291, 0, -0.0376553, -8.79837, 1.64154, 0.320506)
+
+[node name="pickupable-table" parent="testenvironment/Pickupable" instance=ExtResource("12_r3mdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82571, 0.593966, 0.28967)
+
+[node name="pickupable-chair" parent="testenvironment/Pickupable" instance=ExtResource("13_cipi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40545, 1.21494, -1.7636)

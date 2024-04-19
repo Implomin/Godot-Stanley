@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://du0uwrocb0rsy"]
+
+[ext_resource type="PackedScene" uid="uid://b5dcpysmy7d87" path="res://environment/itemAssets/assets/plants/bonsai.glb" id="1_q2fer"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_10d02"]
+size = Vector3(0.884033, 0.914215, 0.681305)
+
+[node name="bonsai2" instance=ExtResource("1_q2fer")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bonsai" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bonsai/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00109863, 0.457333, -0.00196838)
+shape = SubResource("BoxShape3D_10d02")

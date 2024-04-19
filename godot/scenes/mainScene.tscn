@@ -1,15 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://5xkbprsot27e"]
+[gd_scene load_steps=9 format=3 uid="uid://5xkbprsot27e"]
 
 [ext_resource type="PackedScene" uid="uid://ffvyutrktanf" path="res://scenes/testEnvironment.tscn" id="1_d8wmk"]
 [ext_resource type="PackedScene" uid="uid://cg3t7pp64w0rv" path="res://characters/player/player_root.tscn" id="2_fp1xm"]
 [ext_resource type="PackedScene" uid="uid://hr2tbs8b3sr3" path="res://environment/modular/arrivedAt.tscn" id="3_udp80"]
 [ext_resource type="PackedScene" uid="uid://3c3kddccavy2" path="res://characters/narrator/narratorLogic.tscn" id="4_fasj4"]
-[ext_resource type="PackedScene" uid="uid://dux7qnd1ijg0y" path="res://environment/itemAssets/scenes/pickupable/pickupable-ber.tscn" id="6_3ymil"]
-[ext_resource type="PackedScene" uid="uid://bn8myhbfa3job" path="res://environment/itemAssets/scenes/pickupable/pickupable-test.tscn" id="6_5vf25"]
-[ext_resource type="PackedScene" uid="uid://5ac77x6uxeo" path="res://environment/itemAssets/scenes/pickupable/pickupable-puter.tscn" id="7_tdi11"]
-[ext_resource type="PackedScene" uid="uid://bwxewoxxf7wjs" path="res://environment/itemAssets/scenes/pickupable/pickupable-table.tscn" id="8_q4jmj"]
-[ext_resource type="PackedScene" uid="uid://r0unjfbabodl" path="res://environment/itemAssets/scenes/static/static-printer.tscn" id="9_bsfnk"]
-[ext_resource type="PackedScene" uid="uid://balrbttwix8q5" path="res://environment/itemAssets/scenes/pickupable/pickupable-chair.tscn" id="10_ppxqn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kbxr7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -68,26 +62,5 @@ use_threads = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="NarratorLogic"]
 stream = SubResource("AudioStreamWAV_2m5g7")
 volume_db = 1.874
-
-[node name="pickupable-ber" parent="." instance=ExtResource("6_3ymil")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00516, 0.812061, -4.25246)
-
-[node name="pickupable-test" parent="." instance=ExtResource("6_5vf25")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4729, 2.59393, -3.86802)
-
-[node name="pickupable-test2" parent="." instance=ExtResource("6_5vf25")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20106, 2.59393, -3.3061)
-
-[node name="pickupable-puter" parent="." instance=ExtResource("7_tdi11")]
-transform = Transform3D(-0.0376553, 0, 0.999291, 0, 1, 0, -0.999291, 0, -0.0376553, -8.79837, 1.64154, 0.320506)
-
-[node name="pickupable-table" parent="." instance=ExtResource("8_q4jmj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82571, 0.593966, 0.28967)
-
-[node name="printer" parent="." instance=ExtResource("9_bsfnk")]
-transform = Transform3D(-0.835721, 0, 0.549154, 0, 1, 0, -0.549154, 0, -0.835721, -9.036, 0, 2.027)
-
-[node name="pickupable-chair" parent="." instance=ExtResource("10_ppxqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40545, 1.21494, -1.7636)
 
 [connection signal="request_completed" from="NarratorLogic/HTTPRequest" to="NarratorLogic" method="_on_http_request_request_completed"]
