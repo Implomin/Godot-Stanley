@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1lhj57ps48ft"]
+[gd_scene load_steps=3 format=3 uid="uid://cd7ug0b66w40x"]
 
-[ext_resource type="PackedScene" uid="uid://cwrj4f7p3ycud" path="res://environment/itemAssets/assets/plants/snake2.glb" id="1_r24b8"]
+[ext_resource type="PackedScene" uid="uid://eacra8fr550" path="res://environment/itemAssets/assets/plants/snake2.glb" id="1_nh0po"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tn528"]
-size = Vector3(0.5, 1.727, 0.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_kio3d"]
+size = Vector3(0.52, 1.789, 0.52)
 
-[node name="snake2" instance=ExtResource("1_r24b8")]
+[node name="snake2" type="Node3D"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="snake2" index="0"]
+[node name="snake2-mesh" parent="." instance=ExtResource("1_nh0po")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="snake2/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.863525, 0)
-shape = SubResource("BoxShape3D_tn528")
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.894531, 0)
+shape = SubResource("BoxShape3D_kio3d")

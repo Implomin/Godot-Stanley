@@ -72,6 +72,10 @@ ui_esc={
 ]
 }
 
+[physics]
+
+3d/physics_engine="JoltPhysics3D"
+
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"
