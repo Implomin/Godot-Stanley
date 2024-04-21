@@ -10,7 +10,7 @@ public partial class RayCast3D : Godot.RayCast3D
 	bool isColliding = false;
 
 
-	public override void _Process(double delta) {
+	public override void _PhysicsProcess(double delta) {
 		if(IsColliding() && lookingAtObject == null){
 			lookingAtObject = (Pickupable)GetCollider();
 			GD.Print("obj detected: " + lookingAtObject.Name);
@@ -20,7 +20,7 @@ public partial class RayCast3D : Godot.RayCast3D
 			if(currentlyPickingUp){
 				lookingAtObject.GravityScale = 0f;
 				lookingAtObject.LinearVelocity = (pickUpObjLocation.GlobalPosition - lookingAtObject.GlobalPosition)*15;
-				lookingAtObject.AngularVelocity = pickUpObjLocation.GlobalRotation - lookingAtObject.GlobalRotation;
+				//lookingAtObject.AngularVelocity = pickUpObjLocation.GlobalRotation - lookingAtObject.GlobalRotation;
 
 				if(Input.IsActionJustPressed("interaction_pickup")){
 					lookingAtObject.isPickedUp = false;

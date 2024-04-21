@@ -62,53 +62,61 @@ material_override = ExtResource("3_lce25")
 
 [node name="Lights" type="Node" parent="testenvironment"]
 
-[node name="SpotLight3D" type="OmniLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 5.61388, 5.10521, 0)
-light_color = Color(1, 0.815686, 0.733333, 1)
-light_energy = 1.7
-omni_range = 8.0
+[node name="SpotLight3D" type="SpotLight3D" parent="testenvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 5.61388, 5.3321, 0)
+light_color = Color(1, 0.815686, 0.654902, 1)
+light_energy = 5.0
+spot_range = 12.0
+spot_angle = 100.0
 
-[node name="SpotLight3D2" type="OmniLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -7.35799, 5.10521, 0.597133)
-light_color = Color(1, 0.815686, 0.733333, 1)
-light_energy = 1.7
-omni_range = 8.0
+[node name="SpotLight3D2" type="SpotLight3D" parent="testenvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -7.35799, 5.3321, 0.597133)
+light_color = Color(1, 0.815686, 0.654902, 1)
+light_energy = 5.0
+spot_range = 12.0
+spot_angle = 100.0
 
-[node name="SpotLight3D3" type="OmniLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -7.33534, 5.10521, -6.43613)
-light_color = Color(1, 0.815686, 0.733333, 1)
-light_energy = 1.7
-omni_range = 8.0
+[node name="SpotLight3D3" type="SpotLight3D" parent="testenvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -7.33534, 5.3321, -6.43613)
+light_color = Color(1, 0.815686, 0.654902, 1)
+light_energy = 5.0
+spot_range = 12.0
+spot_angle = 100.0
 
-[node name="SpotLight3D4" type="OmniLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -5.06927, 5.10521, -11.5576)
-light_color = Color(1, 0.815686, 0.733333, 1)
-light_energy = 1.7
-omni_range = 8.0
+[node name="SpotLight3D4" type="SpotLight3D" parent="testenvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -5.06927, 5.3321, -11.5576)
+light_color = Color(1, 0.815686, 0.654902, 1)
+light_energy = 5.0
+spot_range = 12.0
+spot_angle = 100.0
 
-[node name="SpotLight3D5" type="OmniLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 0.754434, 5.10521, -9.87249)
-light_color = Color(1, 0.815686, 0.733333, 1)
-light_energy = 1.7
-omni_range = 8.0
+[node name="SpotLight3D5" type="SpotLight3D" parent="testenvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 0.754434, 5.3321, -9.87249)
+light_color = Color(1, 0.815686, 0.654902, 1)
+light_energy = 5.0
+spot_range = 12.0
+spot_angle = 100.0
 
-[node name="SpotLight3D6" type="OmniLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 5.64147, 5.10521, -9.79283)
-light_color = Color(1, 0.815686, 0.733333, 1)
-light_energy = 1.7
-omni_range = 8.0
+[node name="SpotLight3D6" type="SpotLight3D" parent="testenvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 5.64147, 5.3321, -9.79283)
+light_color = Color(1, 0.815686, 0.654902, 1)
+light_energy = 5.0
+spot_range = 12.0
+spot_angle = 100.0
 
-[node name="SpotLight3D7" type="OmniLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -3.46602, 5.10521, 9.36517)
-light_color = Color(1, 0.815686, 0.733333, 1)
-light_energy = 1.7
-omni_range = 8.0
+[node name="SpotLight3D7" type="SpotLight3D" parent="testenvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -3.46602, 5.3321, 9.36517)
+light_color = Color(1, 0.815686, 0.654902, 1)
+light_energy = 5.0
+spot_range = 12.0
+spot_angle = 100.0
 
-[node name="SpotLight3D8" type="OmniLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -0.224781, 5.10521, -0.11442)
-light_color = Color(1, 0.815686, 0.733333, 1)
-light_energy = 1.7
-omni_range = 8.0
+[node name="SpotLight3D8" type="SpotLight3D" parent="testenvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -0.224781, 5.3321, -0.11442)
+light_color = Color(1, 0.815686, 0.654902, 1)
+light_energy = 5.0
+spot_range = 12.0
+spot_angle = 100.0
 
 [node name="Objects" type="Node" parent="testenvironment"]
 
