@@ -16,12 +16,12 @@ sky_material = SubResource("ProceduralSkyMaterial_kbxr7")
 background_mode = 2
 sky = SubResource("Sky_qlu2y")
 ambient_light_sky_contribution = 0.0
-ssao_enabled = true
+ssil_enabled = true
 ssil_radius = 10.0
 ssil_intensity = 1.67
 fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
-fog_density = 0.0416
+fog_density = 0.0311
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_2m5g7"]
 

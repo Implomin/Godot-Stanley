@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ffvyutrktanf"]
+[gd_scene load_steps=17 format=3 uid="uid://ffvyutrktanf"]
 
 [ext_resource type="Material" uid="uid://c4vq4enevd0c5" path="res://environment/median/tileMaterial.tres" id="1_4ui6o"]
 [ext_resource type="Material" uid="uid://dviaupps4ckjg" path="res://environment/median/tileMaterial2.tres" id="1_mi1kn"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://7i0fdn4thdgi" path="res://environment/itemAssets/scenes/static/static-snake_1.tscn" id="7_l3v5l"]
 [ext_resource type="PackedScene" uid="uid://du0uwrocb0rsy" path="res://environment/itemAssets/scenes/static/static-bonsai.tscn" id="8_irrbb"]
 [ext_resource type="PackedScene" uid="uid://dux7qnd1ijg0y" path="res://environment/itemAssets/scenes/pickupable/pickupable-ber.tscn" id="9_2k135"]
+[ext_resource type="PackedScene" uid="uid://cd7ug0b66w40x" path="res://environment/itemAssets/scenes/static/static-snake_2.tscn" id="9_hw8rs"]
 [ext_resource type="PackedScene" uid="uid://bn8myhbfa3job" path="res://environment/itemAssets/scenes/pickupable/pickupable-test.tscn" id="10_35hmk"]
 [ext_resource type="PackedScene" uid="uid://5ac77x6uxeo" path="res://environment/itemAssets/scenes/pickupable/pickupable-puter.tscn" id="11_lpcd8"]
 [ext_resource type="PackedScene" uid="uid://bwxewoxxf7wjs" path="res://environment/itemAssets/scenes/pickupable/pickupable-table.tscn" id="12_r3mdi"]
@@ -62,61 +63,77 @@ material_override = ExtResource("3_lce25")
 
 [node name="Lights" type="Node" parent="testenvironment"]
 
-[node name="SpotLight3D" type="SpotLight3D" parent="testenvironment/Lights"]
+[node name="SpotLight3D" type="OmniLight3D" parent="testenvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 5.61388, 5.3321, 0)
 light_color = Color(1, 0.815686, 0.654902, 1)
-light_energy = 5.0
-spot_range = 12.0
-spot_angle = 100.0
+light_energy = 3.0
+shadow_enabled = true
+shadow_blur = 3.0
+distance_fade_enabled = true
+omni_range = 10.0
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="testenvironment/Lights"]
+[node name="SpotLight3D2" type="OmniLight3D" parent="testenvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -7.35799, 5.3321, 0.597133)
 light_color = Color(1, 0.815686, 0.654902, 1)
-light_energy = 5.0
-spot_range = 12.0
-spot_angle = 100.0
+light_energy = 3.0
+shadow_enabled = true
+shadow_blur = 3.0
+distance_fade_enabled = true
+omni_range = 10.0
 
-[node name="SpotLight3D3" type="SpotLight3D" parent="testenvironment/Lights"]
+[node name="SpotLight3D3" type="OmniLight3D" parent="testenvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -7.33534, 5.3321, -6.43613)
 light_color = Color(1, 0.815686, 0.654902, 1)
-light_energy = 5.0
-spot_range = 12.0
-spot_angle = 100.0
+light_energy = 3.0
+shadow_enabled = true
+shadow_blur = 3.0
+distance_fade_enabled = true
+omni_range = 10.0
 
-[node name="SpotLight3D4" type="SpotLight3D" parent="testenvironment/Lights"]
+[node name="SpotLight3D4" type="OmniLight3D" parent="testenvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -5.06927, 5.3321, -11.5576)
 light_color = Color(1, 0.815686, 0.654902, 1)
-light_energy = 5.0
-spot_range = 12.0
-spot_angle = 100.0
+light_energy = 3.0
+shadow_enabled = true
+shadow_blur = 3.0
+distance_fade_enabled = true
+omni_range = 10.0
 
-[node name="SpotLight3D5" type="SpotLight3D" parent="testenvironment/Lights"]
+[node name="SpotLight3D5" type="OmniLight3D" parent="testenvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 0.754434, 5.3321, -9.87249)
 light_color = Color(1, 0.815686, 0.654902, 1)
-light_energy = 5.0
-spot_range = 12.0
-spot_angle = 100.0
+light_energy = 3.0
+shadow_enabled = true
+shadow_blur = 3.0
+distance_fade_enabled = true
+omni_range = 10.0
 
-[node name="SpotLight3D6" type="SpotLight3D" parent="testenvironment/Lights"]
+[node name="SpotLight3D6" type="OmniLight3D" parent="testenvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 5.64147, 5.3321, -9.79283)
 light_color = Color(1, 0.815686, 0.654902, 1)
-light_energy = 5.0
-spot_range = 12.0
-spot_angle = 100.0
+light_energy = 3.0
+shadow_enabled = true
+shadow_blur = 3.0
+distance_fade_enabled = true
+omni_range = 10.0
 
-[node name="SpotLight3D7" type="SpotLight3D" parent="testenvironment/Lights"]
+[node name="SpotLight3D7" type="OmniLight3D" parent="testenvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -3.46602, 5.3321, 9.36517)
 light_color = Color(1, 0.815686, 0.654902, 1)
-light_energy = 5.0
-spot_range = 12.0
-spot_angle = 100.0
+light_energy = 3.0
+shadow_enabled = true
+shadow_blur = 3.0
+distance_fade_enabled = true
+omni_range = 10.0
 
-[node name="SpotLight3D8" type="SpotLight3D" parent="testenvironment/Lights"]
+[node name="SpotLight3D8" type="OmniLight3D" parent="testenvironment/Lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -0.224781, 5.3321, -0.11442)
 light_color = Color(1, 0.815686, 0.654902, 1)
-light_energy = 5.0
-spot_range = 12.0
-spot_angle = 100.0
+light_energy = 3.0
+shadow_enabled = true
+shadow_blur = 3.0
+distance_fade_enabled = true
+omni_range = 10.0
 
 [node name="Objects" type="Node" parent="testenvironment"]
 
@@ -128,6 +145,9 @@ transform = Transform3D(0.984223, 0, -0.17693, 0, 1, 0, 0.17693, 0, 0.984223, 2.
 
 [node name="snake1" parent="testenvironment/Objects" instance=ExtResource("7_l3v5l")]
 transform = Transform3D(0.756356, 0, 0.65416, 0, 1, 0, -0.65416, 0, 0.756356, -5.33574, 9.53674e-07, 0.935539)
+
+[node name="snake2" parent="testenvironment/Objects" instance=ExtResource("9_hw8rs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.114248, -2.38419e-07, -9.25528)
 
 [node name="Pickupable" type="Node" parent="testenvironment"]
 

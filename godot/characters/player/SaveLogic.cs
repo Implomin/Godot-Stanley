@@ -3,6 +3,12 @@ using System;
 
 public partial class SaveLogic : Node
 {
+	public override void _Process(double delta) {
+		if(Input.IsActionJustPressed("ui_esc"))
+		{
+			GetTree().Quit();
+		}
+	}
 	/* [Export] CharacterBody3D player;
 	[Export] Node3D cameraNode;
 	[Export] int randomnessFactor = 10;
