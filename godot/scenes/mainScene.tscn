@@ -16,6 +16,7 @@ sky_material = SubResource("ProceduralSkyMaterial_kbxr7")
 background_mode = 2
 sky = SubResource("Sky_qlu2y")
 ambient_light_sky_contribution = 0.0
+tonemap_mode = 2
 ssil_enabled = true
 ssil_radius = 10.0
 ssil_intensity = 1.67

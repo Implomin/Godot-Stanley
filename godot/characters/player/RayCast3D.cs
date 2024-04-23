@@ -10,7 +10,7 @@ public partial class RayCast3D : Godot.RayCast3D
 	bool isColliding = false;
 
 
-	public override void _PhysicsProcess(double delta) {
+	public override void _Process(double delta) {
 		if(IsColliding() && lookingAtObject == null){
 			lookingAtObject = (Pickupable)GetCollider();
 			GD.Print("obj detected: " + lookingAtObject.Name);

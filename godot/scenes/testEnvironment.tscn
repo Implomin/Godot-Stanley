@@ -60,6 +60,7 @@ shape = SubResource("BoxShape3D_14l70")
 material_override = ExtResource("3_lce25")
 
 [node name="testenvironment" parent="." instance=ExtResource("5_0adff")]
+transform = Transform3D(1, 0, 0, 0, 3.145, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Lights" type="Node" parent="testenvironment"]
 
