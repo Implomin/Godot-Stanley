@@ -7,6 +7,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"net/url"
 	"os/exec"
 	"strings"
 
@@ -89,6 +90,24 @@ func delegate_to_tts(prompt string) (io.ReadCloser, *exec.Cmd) {
 	return stdPipe, cmd
 }
 
+func connect_with_cogui_server(prompt string) io.ReadCloser {
+	cogui := "http://localhost:5002/api/tts?"
+	params := url.Values{}
+
+	params.Add("text", prompt)
+	params.Add("speaker_id", "male-pt-3\n")
+	params.Add("style_wav", "")
+	params.Add("language_id", "en")
+
+	resp, err := http.Get(cogui + params.Encode())
+	if err != nil {
+		log.Fatal()
+	}
+	// b, _ := io.ReadAll(resp.Body)
+	// fmt.Printf("Received: %d bytes", len(b))
+	return resp.Body
+}
+
 func write(reader *io.PipeReader, w http.ResponseWriter) {
 	defer reader.Close()
 	buf := make([]byte, 16*1024)
@@ -128,10 +147,15 @@ func Handle_prompt(w http.ResponseWriter, r *http.Request) {
 
 	//	p := fmt.Sprintf(`{"prompt": "%s"}`, ollama_response)
 	fmt.Println(ollama_response)
-	pipe, cmd := delegate_to_tts(ollama_response)
-	cmd.Start()
+	// pipe, cmd := delegate_to_tts(ollama_response)
+	// cmd.Start()
+	pipe := connect_with_cogui_server(ollama_response)
 	w.Header().Add("Content-Type", "audio/wav")
-	go io.Copy(w, pipe)
-	cmd.Wait()
+	written, err := io.Copy(w, pipe)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("Written %d", written)
+	// cmd.Wait()
 	pipe.Close()
 }
