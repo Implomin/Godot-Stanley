@@ -71,7 +71,7 @@ func get_prompt(prompt_json []byte) model.Ollama_response {
 	return r
 }
 
-func delegate_to_tts(prompt string, writer *io.PipeWriter) *exec.Cmd {
+func delegate_to_tts(prompt string) (io.ReadCloser, *exec.Cmd) {
 	cmd := exec.Command(
 		"tts",
 		"--text",
@@ -81,9 +81,12 @@ func delegate_to_tts(prompt string, writer *io.PipeWriter) *exec.Cmd {
 		"--speaker_wav=resources/inputs/output.wav",
 		"--language_idx=en",
 		"--pipe_out")
-	cmd.Stdout = writer
-	cmd.Stderr = writer
-	return cmd
+	// errPipe, err := cmd.StderrPipe(); if err != nil { log.Fatalln(err)}
+	stdPipe, err := cmd.StdoutPipe()
+	if err != nil {
+		log.Fatalln(err)
+	}
+	return stdPipe, cmd
 }
 
 func write(reader *io.PipeReader, w http.ResponseWriter) {
@@ -125,11 +128,10 @@ func Handle_prompt(w http.ResponseWriter, r *http.Request) {
 
 	//	p := fmt.Sprintf(`{"prompt": "%s"}`, ollama_response)
 	fmt.Println(ollama_response)
-	reader, writer := io.Pipe()
-	cmd := delegate_to_tts(ollama_response, writer)
-	w.Header().Add("Content-Type", "audio/wav")
+	pipe, cmd := delegate_to_tts(ollama_response)
 	cmd.Start()
-	go write(reader, w)
+	w.Header().Add("Content-Type", "audio/wav")
+	go io.Copy(w, pipe)
 	cmd.Wait()
-	writer.Close()
+	pipe.Close()
 }
