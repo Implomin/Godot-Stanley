@@ -10,6 +10,7 @@ import (
 
 func main() {
 
+	http.HandleFunc("/voice", handler.Handle_voice)
 	http.HandleFunc("/prompt", handler.Handle_prompt)
 
 	fmt.Println("LISTENING ON PORT 5051")
