@@ -64,4 +64,10 @@ use_threads = true
 stream = SubResource("AudioStreamWAV_2m5g7")
 volume_db = 1.874
 
+[node name="Label" type="Label" parent="NarratorLogic"]
+offset_right = 260.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 50
+text = "I am dumb"
+
 [connection signal="request_completed" from="NarratorLogic/HTTPRequest" to="NarratorLogic" method="_on_http_request_request_completed"]
