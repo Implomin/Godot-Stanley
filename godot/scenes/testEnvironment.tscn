@@ -60,12 +60,12 @@ shape = SubResource("BoxShape3D_14l70")
 material_override = ExtResource("3_lce25")
 
 [node name="testenvironment" parent="." instance=ExtResource("5_0adff")]
-transform = Transform3D(1, 0, 0, 0, 3.145, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Lights" type="Node" parent="testenvironment"]
 
 [node name="SpotLight3D" type="OmniLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 5.61388, 5.3321, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7.09638, 5.26543, -0.622419)
+visible = false
 light_color = Color(1, 0.815686, 0.654902, 1)
 light_energy = 3.0
 shadow_enabled = true
@@ -74,7 +74,8 @@ distance_fade_enabled = true
 omni_range = 10.0
 
 [node name="SpotLight3D2" type="OmniLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -7.35799, 5.3321, 0.597133)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -7.35799, 5.26543, 0.597133)
+visible = false
 light_color = Color(1, 0.815686, 0.654902, 1)
 light_energy = 3.0
 shadow_enabled = true
@@ -83,7 +84,8 @@ distance_fade_enabled = true
 omni_range = 10.0
 
 [node name="SpotLight3D3" type="OmniLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -7.33534, 5.3321, -6.43613)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -7.33534, 5.26543, -6.43613)
+visible = false
 light_color = Color(1, 0.815686, 0.654902, 1)
 light_energy = 3.0
 shadow_enabled = true
@@ -92,7 +94,8 @@ distance_fade_enabled = true
 omni_range = 10.0
 
 [node name="SpotLight3D4" type="OmniLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -5.06927, 5.3321, -11.5576)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.06927, 5.26543, -11.5576)
+visible = false
 light_color = Color(1, 0.815686, 0.654902, 1)
 light_energy = 3.0
 shadow_enabled = true
@@ -101,7 +104,8 @@ distance_fade_enabled = true
 omni_range = 10.0
 
 [node name="SpotLight3D5" type="OmniLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 0.754434, 5.3321, -9.87249)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.754434, 5.26543, -9.87249)
+visible = false
 light_color = Color(1, 0.815686, 0.654902, 1)
 light_energy = 3.0
 shadow_enabled = true
@@ -110,7 +114,8 @@ distance_fade_enabled = true
 omni_range = 10.0
 
 [node name="SpotLight3D6" type="OmniLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 5.64147, 5.3321, -9.79283)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.64147, 5.26543, -9.79283)
+visible = false
 light_color = Color(1, 0.815686, 0.654902, 1)
 light_energy = 3.0
 shadow_enabled = true
@@ -119,7 +124,8 @@ distance_fade_enabled = true
 omni_range = 10.0
 
 [node name="SpotLight3D7" type="OmniLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -3.46602, 5.3321, 9.36517)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.46602, 5.26543, 9.36517)
+visible = false
 light_color = Color(1, 0.815686, 0.654902, 1)
 light_energy = 3.0
 shadow_enabled = true
@@ -128,7 +134,8 @@ distance_fade_enabled = true
 omni_range = 10.0
 
 [node name="SpotLight3D8" type="OmniLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -0.224781, 5.3321, -0.11442)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.40056, 5.26543, -0.335592)
+visible = false
 light_color = Color(1, 0.815686, 0.654902, 1)
 light_energy = 3.0
 shadow_enabled = true
@@ -175,3 +182,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82571, 0.593966, 0.28967)
 
 [node name="pickupable-chair" parent="testenvironment/Pickupable" instance=ExtResource("13_cipi4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40545, 1.21494, -1.7636)
+
+[node name="GIProbeTest" type="Node" parent="testenvironment"]

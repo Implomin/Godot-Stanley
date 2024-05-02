@@ -16,7 +16,7 @@ public partial class SaveLogic : Node
 			lockedFps = !lockedFps;
 			if(lockedFps)
 			{
-				Engine.MaxFps = 30;
+				Engine.MaxFps = 60;
 			}
 			else{
 				Engine.MaxFps = 0;
