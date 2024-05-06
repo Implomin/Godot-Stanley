@@ -4,14 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://dbef2qjl8r6gg" path="res://environment/itemAssets/assets/bear/ber.glb" id="2_x1cw2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y476m"]
-size = Vector3(0.855, 1.2, 0.72)
+size = Vector3(0.661387, 0.870068, 0.456484)
 
 [node name="pickupable_bear" type="RigidBody3D"]
 collision_layer = 5
 script = ExtResource("1_c4bkk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0292725, -0.0192575)
 shape = SubResource("BoxShape3D_y476m")
 
 [node name="ber" parent="CollisionShape3D" instance=ExtResource("2_x1cw2")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.0393206, -0.0993203)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.0361187, -0.0650134)
