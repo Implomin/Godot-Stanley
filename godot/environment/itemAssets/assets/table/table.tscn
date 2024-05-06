@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://djsqnjngdgfci"]
+
+[ext_resource type="PackedScene" uid="uid://b0xfevqopsk2j" path="res://environment/itemAssets/assets/table/table.glb" id="1_4gemw"]
+[ext_resource type="Material" uid="uid://djjlgkv5gdyae" path="res://environment/itemAssets/assets/desk/wood_1.tres" id="2_tkjr2"]
+
+[node name="table" instance=ExtResource("1_4gemw")]
+
+[node name="Cube" parent="." index="0"]
+material_override = ExtResource("2_tkjr2")

@@ -1,46 +1,18 @@
-[gd_scene load_steps=19 format=3 uid="uid://ffvyutrktanf"]
+[gd_scene load_steps=11 format=3 uid="uid://ffvyutrktanf"]
 
-[ext_resource type="Material" uid="uid://c4vq4enevd0c5" path="res://environment/median/tileMaterial.tres" id="1_4ui6o"]
-[ext_resource type="Material" uid="uid://dviaupps4ckjg" path="res://environment/median/tileMaterial2.tres" id="1_mi1kn"]
 [ext_resource type="Script" path="res://scenes/PhysicsBox.cs" id="3_kk88d"]
 [ext_resource type="Material" uid="uid://baacwtgp6s0yo" path="res://environment/median/tileMaterial3.tres" id="3_lce25"]
-[ext_resource type="PackedScene" uid="uid://r0unjfbabodl" path="res://environment/itemAssets/scenes/static/static-printer.tscn" id="6_j5rks"]
-[ext_resource type="PackedScene" uid="uid://7i0fdn4thdgi" path="res://environment/itemAssets/scenes/static/static-snake_1.tscn" id="7_l3v5l"]
-[ext_resource type="PackedScene" uid="uid://du0uwrocb0rsy" path="res://environment/itemAssets/scenes/static/static-bonsai.tscn" id="8_irrbb"]
 [ext_resource type="PackedScene" uid="uid://dux7qnd1ijg0y" path="res://environment/itemAssets/scenes/pickupable/pickupable-ber.tscn" id="9_2k135"]
-[ext_resource type="PackedScene" uid="uid://cd7ug0b66w40x" path="res://environment/itemAssets/scenes/static/static-snake_2.tscn" id="9_hw8rs"]
 [ext_resource type="PackedScene" uid="uid://bn8myhbfa3job" path="res://environment/itemAssets/scenes/pickupable/pickupable-test.tscn" id="10_35hmk"]
 [ext_resource type="PackedScene" uid="uid://5ac77x6uxeo" path="res://environment/itemAssets/scenes/pickupable/pickupable-puter.tscn" id="11_lpcd8"]
 [ext_resource type="PackedScene" uid="uid://bwxewoxxf7wjs" path="res://environment/itemAssets/scenes/pickupable/pickupable-table.tscn" id="12_r3mdi"]
 [ext_resource type="PackedScene" uid="uid://balrbttwix8q5" path="res://environment/itemAssets/scenes/pickupable/pickupable-chair.tscn" id="13_cipi4"]
-[ext_resource type="PackedScene" uid="uid://hm5gbhfi65ev" path="res://environment/itemAssets/scenes/static/static-desk.tscn" id="15_thgkm"]
 [ext_resource type="PackedScene" uid="uid://xln747pdh7uy" path="res://environment/median/human_for_scale.tscn" id="16_qsaxx"]
 [ext_resource type="PackedScene" uid="uid://r4fhjfngt6u8" path="res://environment/maps/map_scene.tscn" id="16_ylnyc"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_kdbxt"]
-left_to_right = 0.0
-size = Vector3(2, 1, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_14l70"]
 
 [node name="EnvironmentRoot" type="Node3D"]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(40, 0, 0, 0, 5, 0, 0, 0, 40, 0, -2.5, 0)
-visible = false
-use_collision = true
-material = ExtResource("1_4ui6o")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1.3991, 0, 1.42917, 0, 1, 0, -1.42917, 0, 1.3991, 2.60787, 0.499999, -2.20602)
-material_override = ExtResource("1_mi1kn")
-use_collision = true
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(-0.865903, 0, 0.500212, 0, 1, 0, -0.500212, 0, -0.865903, 2.81024, 0.500001, 3.78654)
-material_override = ExtResource("1_mi1kn")
-use_collision = true
-mesh = SubResource("PrismMesh_kdbxt")
 
 [node name="PhysicsBox" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10122, 1, 7.46271)
@@ -60,23 +32,6 @@ shape = SubResource("BoxShape3D_14l70")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="PhysicsBox2"]
 material_override = ExtResource("3_lce25")
-
-[node name="Objects" type="Node" parent="."]
-
-[node name="printer" parent="Objects" instance=ExtResource("6_j5rks")]
-transform = Transform3D(-0.346314, 0, 0.938119, 0, 1, 0, -0.938119, 0, -0.346314, -6.53904, 1.19209e-06, 2.47162)
-
-[node name="bonsai2" parent="Objects" instance=ExtResource("8_irrbb")]
-transform = Transform3D(0.984223, 0, -0.17693, 0, 1, 0, 0.17693, 0, 0.984223, 2.69521, 0.999999, -2.73268)
-
-[node name="snake1" parent="Objects" instance=ExtResource("7_l3v5l")]
-transform = Transform3D(0.756356, 0, 0.65416, 0, 1, 0, -0.65416, 0, 0.756356, -3.92669, 9.53674e-07, 3.3895)
-
-[node name="snake2" parent="Objects" instance=ExtResource("9_hw8rs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0967789, -2.38419e-07, -6.74358)
-
-[node name="Static-desk" parent="Objects" instance=ExtResource("15_thgkm")]
-transform = Transform3D(-0.996004, 0, -0.0893116, 0, 1, 0, 0.0893116, 0, -0.996004, -5.2477, 0, 3.43439)
 
 [node name="Pickupable" type="Node" parent="."]
 

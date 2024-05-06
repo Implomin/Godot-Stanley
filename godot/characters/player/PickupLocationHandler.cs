@@ -16,9 +16,7 @@ public partial class PickupLocationHandler : Node3D
 		if(!isPickedUp){	
 			if(playerCameraHandler.Rotation.X > 0.3f)
 			{
-				Vector2 directionalVector = new Vector2(playerLookAt.GlobalPosition.X, playerLookAt.GlobalPosition.Z).Normalized();
-				GD.Print (directionalVector);
-				this.GlobalPosition = new Vector3(playerPositionNode.GlobalPosition.X + directionalVector.X * 2, playerLookAt.GlobalPosition.Y, playerPositionNode.GlobalPosition.Z + directionalVector.Y * 2);
+				this.GlobalPosition = new Vector3(playerLookAt.GlobalPosition.X, playerLookAt.GlobalPosition.Y,playerLookAt.GlobalPosition.Z);
 			}else{
 				this.GlobalPosition = new Vector3(playerLookAt.GlobalPosition.X, playerLookAt.GlobalPosition.Y, playerLookAt.GlobalPosition.Z);
 			}

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqsl75w20uvbx"]
+
+[ext_resource type="PackedScene" uid="uid://bdm8ux0wn7j37" path="res://environment/itemAssets/assets/desk/desk1.glb" id="1_itjky"]
+[ext_resource type="Material" uid="uid://djjlgkv5gdyae" path="res://environment/itemAssets/assets/desk/wood_1.tres" id="2_cg2r6"]
+[ext_resource type="Material" uid="uid://ywifb12o6g7g" path="res://environment/itemAssets/assets/desk/dark_metal.tres" id="3_u6gyr"]
+
+[node name="desk1" instance=ExtResource("1_itjky")]
+
+[node name="Desk" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_cg2r6")
+surface_material_override/1 = ExtResource("3_u6gyr")

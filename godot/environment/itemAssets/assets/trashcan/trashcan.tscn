@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcnb8wqk6bwp5"]
+
+[ext_resource type="PackedScene" uid="uid://bqwgbildyjy2y" path="res://environment/itemAssets/assets/trashcan/trashcan.glb" id="1_2poxp"]
+[ext_resource type="Material" uid="uid://ywifb12o6g7g" path="res://environment/itemAssets/assets/desk/dark_metal.tres" id="2_085km"]
+
+[node name="trashcan2" instance=ExtResource("1_2poxp")]
+
+[node name="trashcan" parent="." index="0"]
+material_override = ExtResource("2_085km")
