@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://characters/player/PlayerRoot.cs" id="1_ixtfr"]
 [ext_resource type="Script" path="res://characters/player/PlayerMovementHandler.cs" id="2_lfw4o"]
 [ext_resource type="Script" path="res://characters/player/RayCast3D.cs" id="4_c16wx"]
-[ext_resource type="Material" uid="uid://c4vq4enevd0c5" path="res://environment/median/tileMaterial.tres" id="5_b1kmc"]
 [ext_resource type="Script" path="res://characters/player/PickupLocationHandler.cs" id="6_itou6"]
 [ext_resource type="Script" path="res://characters/player/PlayerCameraHandler.cs" id="7_84euo"]
 [ext_resource type="Script" path="res://characters/player/SaveLogic.cs" id="8_e22it"]
@@ -22,6 +21,10 @@ albedo_color = Color(1, 0, 0, 1)
 material = SubResource("StandardMaterial3D_rb3h8")
 size = Vector3(0.8, 0.5, 0.5)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_38lqc"]
+height = 0.6
+radius = 0.35
+
 [node name="PlayerRoot" type="CharacterBody3D"]
 collision_layer = 3
 script = ExtResource("1_ixtfr")
@@ -30,8 +33,9 @@ script = ExtResource("1_ixtfr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_qjbrm")
 
-[node name="movementHandler" type="Node3D" parent="." node_paths=PackedStringArray("playerCharacter")]
+[node name="movementHandler" type="Node3D" parent="." node_paths=PackedStringArray("pickedUpObjectShapecast", "playerCharacter")]
 script = ExtResource("2_lfw4o")
+pickedUpObjectShapecast = NodePath("../ShapeCast3D")
 playerCharacter = NodePath("..")
 jumpStrength = 16.0
 jumpAcceleration = 8.0
@@ -52,10 +56,6 @@ pickUpObjLocation = NodePath("../../../Node3D/PickupLocation")
 
 [node name="LookAt" type="Node3D" parent="cameraHandler/Camera3D/RayCast3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -2.5)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="cameraHandler/Camera3D/RayCast3D/LookAt"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.69954e-08, 0.140742, 0.15517)
-size = Vector3(0.1, 0.1, 0.1)
 
 [node name="meshHandler" type="Node3D" parent="."]
 visible = false
@@ -80,9 +80,10 @@ script = ExtResource("6_itou6")
 playerCameraHandler = NodePath("../../cameraHandler")
 playerLookAt = NodePath("../../cameraHandler/Camera3D/RayCast3D/LookAt")
 
-[node name="csgCrosshairDebug" type="CSGBox3D" parent="Node3D/PickupLocation"]
-size = Vector3(0.1, 0.1, 0.1)
-material = ExtResource("5_b1kmc")
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+shape = SubResource("CylinderShape3D_38lqc")
+target_position = Vector3(0, 0.2, 0)
+collision_mask = 8
 
 [connection signal="SetMovementDirection" from="." to="movementHandler" method="OnSetMovementDirection"]
 [connection signal="SetMovementState" from="." to="movementHandler" method="OnSetMovementState"]

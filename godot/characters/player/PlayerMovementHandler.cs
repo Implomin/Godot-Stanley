@@ -3,6 +3,7 @@ using System;
 
 public partial class PlayerMovementHandler : Node3D
 {
+	[Export] ShapeCast3D pickedUpObjectShapecast;
 	[Export] CharacterBody3D playerCharacter;
 	[Export] public float baseMovementSpeed = 5.0f;
 	private float acceleration;
@@ -36,9 +37,10 @@ public partial class PlayerMovementHandler : Node3D
 		medianVelocity.Z = speed * destDirection.Normalized().Z;
 
  		bool isGrounded = playerCharacter.IsOnFloor();
+		bool isOnPickedUpObject = pickedUpObjectShapecast.IsColliding();
 		ApplyGravity(isGrounded, (float)delta);
 
- 		if(Input.IsActionJustPressed("movement_jump") && isGrounded){
+ 		if(Input.IsActionJustPressed("movement_jump") && isGrounded && !isOnPickedUpObject){
 			//GD.Print("jump");
 			medianVelocity.Y = jumpStrength * 8;
 		}
