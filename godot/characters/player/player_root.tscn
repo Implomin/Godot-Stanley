@@ -74,10 +74,9 @@ script = ExtResource("8_e22it")
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.5, 0)
 
-[node name="PickupLocation" type="Node3D" parent="Node3D" node_paths=PackedStringArray("playerCameraHandler", "playerLookAt")]
+[node name="PickupLocation" type="Node3D" parent="Node3D" node_paths=PackedStringArray("playerLookAt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
 script = ExtResource("6_itou6")
-playerCameraHandler = NodePath("../../cameraHandler")
 playerLookAt = NodePath("../../cameraHandler/Camera3D/RayCast3D/LookAt")
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
