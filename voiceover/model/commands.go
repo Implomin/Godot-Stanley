@@ -10,5 +10,5 @@ type Commands struct {
 }
 
 var Standard_commands Commands = Commands{
-	"turned", "stood", "walked", "jumped", "arrived", "",
+	"turned", "stood", "walked", "jumped", "arrived at", "",
 }
