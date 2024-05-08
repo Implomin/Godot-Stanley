@@ -1,5 +1,5 @@
 ## Goal
-Create script allowing for easy narration creation
+Create a script allowing for easy narration creation
 
 ### How to install ollama
 Use a Linux-based command below or [download](https://ollama.com/download)
@@ -23,8 +23,10 @@ pip install TTS
 ```
 
 #### How to run:
+Use the following command to start a local tts server on port 5002
 ```shell
-tts --text "Example string." --model_name "tts_models/multilingual/multi-dataset/your_tts" --speaker_wav=resources/inputs/output.wav  --language_idx=en --out_path resources/outputs/speech.wav
+~~tts --text "Example string." --model_name "tts_models/multilingual/multi-dataset/your_tts" --speaker_wav=resources/inputs/output.wav  --language_idx=en --out_path resources/outputs/speech.wav~~
+tts-server --model_name tts_models/multilingual/multi-dataset/your_tts
 ```
 
 ### Proposed json structure for our application
@@ -73,3 +75,25 @@ curl --location '127.0.0.1:5051' \
 ```
 
 TODO: add option to pass many actions, rewrite it in go or java because it is getting quite annoying :)
+
+
+### UPDATE 27.04.2024
+
+- Moved to golang
+- Greatly reduced latency 
+- Make sure you have: go installed, ollama and tts-server ready
+```bash
+go run main.go
+```
+
+- Example of a curl (returns audio/wav):
+```bash
+curl --location '127.0.0.1:5051/prompt' \
+--header 'Content-Type: application/json' \
+--data '{"actions": [
+    {"action":"TURN", "value": "left"},
+    {"action": "STAND", "value": "for five minutes"},
+    {"action": "JUMP", "value": "off a bridge"}
+    ]
+}    '
+```
