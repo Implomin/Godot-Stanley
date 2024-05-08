@@ -3,6 +3,7 @@ using System;
 
 public partial class PlayerMovementHandler : Node3D
 {
+	[Export] ShapeCast3D pickedUpObjectShapecast;
 	[Export] CharacterBody3D playerCharacter;
 	[Export] public float baseMovementSpeed = 5.0f;
 	private float acceleration;
@@ -36,14 +37,15 @@ public partial class PlayerMovementHandler : Node3D
 		medianVelocity.Z = speed * destDirection.Normalized().Z;
 
  		bool isGrounded = playerCharacter.IsOnFloor();
+		bool isOnPickedUpObject = pickedUpObjectShapecast.IsColliding();
 		ApplyGravity(isGrounded, (float)delta);
 
- 		if(Input.IsActionJustPressed("movement_jump") && isGrounded){
+ 		if(Input.IsActionJustPressed("movement_jump") && isGrounded && !isOnPickedUpObject){
 			//GD.Print("jump");
-			medianVelocity.Y = jumpStrength * 10;
+			medianVelocity.Y = jumpStrength * 8;
 		}
 
-		playerCharacter.Velocity = ReusableMethods.LerpVector3WithDifferentWeightForY(playerCharacter.Velocity, medianVelocity, 1 - (float)Mathf.Pow(0.5f, delta * acceleration), 1 - (float)Mathf.Pow(0.5f, delta * jumpAcceleration));
+		playerCharacter.Velocity = ReusableMethods.LerpVector3WithDifferentWeightForY(playerCharacter.Velocity, medianVelocity, (float)delta*acceleration, (float)delta*jumpAcceleration/*1 - (float)Mathf.Pow(0.5f, delta * acceleration), 1 - (float)Mathf.Pow(0.5f, delta * jumpAcceleration)*/);
 	
 		playerCharacter.MoveAndSlide();
 	}
@@ -53,7 +55,7 @@ public partial class PlayerMovementHandler : Node3D
 			gravDir = 0;
 		}
 		else{
-			gravDir -= gravityStrength;
+			gravDir -= gravityStrength * 40 * delta;
 		}
 		medianVelocity.Y = gravDir;
 	}

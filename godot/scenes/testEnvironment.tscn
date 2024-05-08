@@ -1,43 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://ffvyutrktanf"]
+[gd_scene load_steps=11 format=3 uid="uid://ffvyutrktanf"]
 
-[ext_resource type="Material" uid="uid://c4vq4enevd0c5" path="res://environment/median/tileMaterial.tres" id="1_4ui6o"]
-[ext_resource type="Material" uid="uid://dviaupps4ckjg" path="res://environment/median/tileMaterial2.tres" id="1_mi1kn"]
 [ext_resource type="Script" path="res://scenes/PhysicsBox.cs" id="3_kk88d"]
 [ext_resource type="Material" uid="uid://baacwtgp6s0yo" path="res://environment/median/tileMaterial3.tres" id="3_lce25"]
-[ext_resource type="PackedScene" uid="uid://dsdbw6nxnrh64" path="res://environment/median/testenvironment2.tscn" id="5_0adff"]
-[ext_resource type="PackedScene" uid="uid://r0unjfbabodl" path="res://environment/itemAssets/scenes/static/static-printer.tscn" id="6_j5rks"]
-[ext_resource type="PackedScene" uid="uid://7i0fdn4thdgi" path="res://environment/itemAssets/scenes/static/static-snake_1.tscn" id="7_l3v5l"]
-[ext_resource type="PackedScene" uid="uid://du0uwrocb0rsy" path="res://environment/itemAssets/scenes/static/static-bonsai.tscn" id="8_irrbb"]
 [ext_resource type="PackedScene" uid="uid://dux7qnd1ijg0y" path="res://environment/itemAssets/scenes/pickupable/pickupable-ber.tscn" id="9_2k135"]
 [ext_resource type="PackedScene" uid="uid://bn8myhbfa3job" path="res://environment/itemAssets/scenes/pickupable/pickupable-test.tscn" id="10_35hmk"]
 [ext_resource type="PackedScene" uid="uid://5ac77x6uxeo" path="res://environment/itemAssets/scenes/pickupable/pickupable-puter.tscn" id="11_lpcd8"]
 [ext_resource type="PackedScene" uid="uid://bwxewoxxf7wjs" path="res://environment/itemAssets/scenes/pickupable/pickupable-table.tscn" id="12_r3mdi"]
 [ext_resource type="PackedScene" uid="uid://balrbttwix8q5" path="res://environment/itemAssets/scenes/pickupable/pickupable-chair.tscn" id="13_cipi4"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_kdbxt"]
-left_to_right = 0.0
-size = Vector3(2, 1, 3)
+[ext_resource type="PackedScene" uid="uid://xln747pdh7uy" path="res://environment/median/human_for_scale.tscn" id="16_qsaxx"]
+[ext_resource type="PackedScene" uid="uid://r4fhjfngt6u8" path="res://environment/maps/map_scene.tscn" id="16_ylnyc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_14l70"]
 
 [node name="EnvironmentRoot" type="Node3D"]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(40, 0, 0, 0, 5, 0, 0, 0, 40, 0, -2.5, 0)
-visible = false
-use_collision = true
-material = ExtResource("1_4ui6o")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1.3991, 0, 1.42917, 0, 1, 0, -1.42917, 0, 1.3991, 2.60787, 0.499999, -2.20602)
-material_override = ExtResource("1_mi1kn")
-use_collision = true
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(-0.865903, 0, 0.500212, 0, 1, 0, -0.500212, 0, -0.865903, 2.81024, 0.500001, 3.78654)
-material_override = ExtResource("1_mi1kn")
-use_collision = true
-mesh = SubResource("PrismMesh_kdbxt")
 
 [node name="PhysicsBox" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10122, 1, 7.46271)
@@ -58,93 +33,33 @@ shape = SubResource("BoxShape3D_14l70")
 [node name="CSGBox3D3" type="CSGBox3D" parent="PhysicsBox2"]
 material_override = ExtResource("3_lce25")
 
-[node name="testenvironment" parent="." instance=ExtResource("5_0adff")]
+[node name="Pickupable" type="Node" parent="."]
 
-[node name="Lights" type="Node" parent="testenvironment"]
+[node name="pickupable-ber" parent="Pickupable" instance=ExtResource("9_2k135")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.995673, 0.812061, -3.05182)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 5.61388, 5.87005, 0)
-light_color = Color(1, 0.815686, 0.733333, 1)
-light_energy = 3.0
-spot_range = 10.0
-spot_angle = 60.0
+[node name="pickupable-test" parent="Pickupable" instance=ExtResource("10_35hmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.60992, 2.59393, -5.15508)
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -7.35799, 5.87005, 0.597133)
-light_color = Color(1, 0.815686, 0.733333, 1)
-light_energy = 3.0
-spot_range = 10.0
-spot_angle = 60.0
+[node name="pickupable-test2" parent="Pickupable" instance=ExtResource("10_35hmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.00801, 2.59393, -8.02655)
 
-[node name="SpotLight3D3" type="SpotLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -7.33534, 5.87005, -6.43613)
-light_color = Color(1, 0.815686, 0.733333, 1)
-light_energy = 3.0
-spot_range = 10.0
-spot_angle = 60.0
+[node name="pickupable-puter" parent="Pickupable" instance=ExtResource("11_lpcd8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.23674, 1.30205, 3.39791)
 
-[node name="SpotLight3D4" type="SpotLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -5.06927, 5.87005, -11.5576)
-light_color = Color(1, 0.815686, 0.733333, 1)
-light_energy = 3.0
-spot_range = 10.0
-spot_angle = 60.0
+[node name="OmniLight3D" type="OmniLight3D" parent="Pickupable/pickupable-puter"]
+transform = Transform3D(-0.0376553, 0, -0.999291, 0, 1, 0, 0.999291, 0, -0.0376553, -0.0203629, 0.148136, 0.388415)
+light_color = Color(0.513726, 0.576471, 0, 1)
+light_energy = 0.5
+omni_range = 0.5
 
-[node name="SpotLight3D5" type="SpotLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 0.754434, 5.87005, -9.87249)
-light_color = Color(1, 0.815686, 0.733333, 1)
-light_energy = 3.0
-spot_range = 10.0
-spot_angle = 60.0
+[node name="pickupable-table" parent="Pickupable" instance=ExtResource("12_r3mdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.51196, 0.593966, 0.879095)
 
-[node name="SpotLight3D6" type="SpotLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, 5.64147, 5.87005, -9.79283)
-light_color = Color(1, 0.815686, 0.733333, 1)
-light_energy = 3.0
-spot_range = 10.0
-spot_angle = 60.0
+[node name="pickupable_chair" parent="Pickupable" instance=ExtResource("13_cipi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.28427, 0.717646, 2.21915)
 
-[node name="SpotLight3D7" type="SpotLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -3.46602, 5.87005, 9.36517)
-light_color = Color(1, 0.815686, 0.733333, 1)
-light_energy = 3.0
-spot_range = 10.0
-spot_angle = 60.0
+[node name="map1" parent="." instance=ExtResource("16_ylnyc")]
 
-[node name="SpotLight3D8" type="SpotLight3D" parent="testenvironment/Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.00308923, 0.999995, 0, -0.999995, -0.00308923, -0.224781, 5.87005, -0.11442)
-light_color = Color(1, 0.815686, 0.733333, 1)
-light_energy = 3.0
-spot_range = 10.0
-spot_angle = 60.0
-
-[node name="Objects" type="Node" parent="testenvironment"]
-
-[node name="printer" parent="testenvironment/Objects" instance=ExtResource("6_j5rks")]
-transform = Transform3D(-0.346314, 0, 0.938119, 0, 1, 0, -0.938119, 0, -0.346314, -8.87534, 1.19209e-06, 2.76155)
-
-[node name="bonsai2" parent="testenvironment/Objects" instance=ExtResource("8_irrbb")]
-transform = Transform3D(0.984223, 0, -0.17693, 0, 1, 0, 0.17693, 0, 0.984223, 2.69521, 0.999999, -2.73268)
-
-[node name="snake1" parent="testenvironment/Objects" instance=ExtResource("7_l3v5l")]
-transform = Transform3D(0.756356, 0, 0.65416, 0, 1, 0, -0.65416, 0, 0.756356, -5.33574, 9.53674e-07, 0.935539)
-
-[node name="Pickupable" type="Node" parent="testenvironment"]
-
-[node name="pickupable-ber" parent="testenvironment/Pickupable" instance=ExtResource("9_2k135")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00516, 0.812061, -4.25246)
-
-[node name="pickupable-test" parent="testenvironment/Pickupable" instance=ExtResource("10_35hmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4729, 2.59393, -3.86802)
-
-[node name="pickupable-test2" parent="testenvironment/Pickupable" instance=ExtResource("10_35hmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20106, 2.59393, -3.3061)
-
-[node name="pickupable-puter" parent="testenvironment/Pickupable" instance=ExtResource("11_lpcd8")]
-transform = Transform3D(-0.0376553, 0, 0.999291, 0, 1, 0, -0.999291, 0, -0.0376553, -8.79837, 1.64154, 0.320506)
-
-[node name="pickupable-table" parent="testenvironment/Pickupable" instance=ExtResource("12_r3mdi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82571, 0.593966, 0.28967)
-
-[node name="pickupable-chair" parent="testenvironment/Pickupable" instance=ExtResource("13_cipi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40545, 1.21494, -1.7636)
+[node name="HumanForScale" parent="." instance=ExtResource("16_qsaxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.26925, 3.57628e-07, 2.70168)

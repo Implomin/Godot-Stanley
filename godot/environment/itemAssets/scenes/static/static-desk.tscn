@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://hm5gbhfi65ev"]
+
+[ext_resource type="PackedScene" uid="uid://bdm8ux0wn7j37" path="res://environment/itemAssets/assets/desk/desk1.glb" id="1_4gke2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uc5lc"]
+size = Vector3(1.4, 0.6, 0.8)
+
+[node name="Static-desk" type="Node3D"]
+
+[node name="desk1" parent="." instance=ExtResource("1_4gke2")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="desk1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="desk1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_uc5lc")

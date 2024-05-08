@@ -3,6 +3,26 @@ using System;
 
 public partial class SaveLogic : Node
 {
+
+	private bool lockedFps = false;
+	public override void _Process(double delta) {
+		if(Input.IsActionJustPressed("ui_esc"))
+		{
+			GetTree().Quit();
+		}
+
+		if(Input.IsActionJustPressed("ui_x"))
+		{
+			lockedFps = !lockedFps;
+			if(lockedFps)
+			{
+				Engine.MaxFps = 60;
+			}
+			else{
+				Engine.MaxFps = 0;
+			}
+		}
+	}
 	/* [Export] CharacterBody3D player;
 	[Export] Node3D cameraNode;
 	[Export] int randomnessFactor = 10;

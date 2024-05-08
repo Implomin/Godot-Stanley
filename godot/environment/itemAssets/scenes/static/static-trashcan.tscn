@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0wmoy2gtibyt"]
+
+[ext_resource type="PackedScene" uid="uid://bcnb8wqk6bwp5" path="res://environment/itemAssets/assets/trashcan/trashcan.tscn" id="1_ol2v1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kkafa"]
+size = Vector3(0.36, 0.6, 0.36)
+
+[node name="Static-trashcan" type="Node3D"]
+
+[node name="trashcan2" parent="." instance=ExtResource("1_ol2v1")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_kkafa")

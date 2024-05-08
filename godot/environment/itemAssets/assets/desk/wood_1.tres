@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://djjlgkv5gdyae"]
+
+[ext_resource type="Texture2D" uid="uid://cvd0x887mrts7" path="res://environment/itemAssets/assets/desk/desk1_Wood041_1K-JPG_Color.jpg" id="1_jkd51"]
+[ext_resource type="Texture2D" uid="uid://cpd82ofdkqlxp" path="res://environment/itemAssets/assets/desk/desk1_Wood041_1K-JPG_NormalGL.jpg" id="2_mc8j8"]
+[ext_resource type="Texture2D" uid="uid://dapk7ewmuovni" path="res://environment/itemAssets/assets/desk/desk1_Wood041_1K-JPG_Roughness.png" id="3_jw074"]
+
+[resource]
+albedo_texture = ExtResource("1_jkd51")
+roughness_texture = ExtResource("3_jw074")
+normal_enabled = true
+normal_texture = ExtResource("2_mc8j8")

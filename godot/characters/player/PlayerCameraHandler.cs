@@ -30,10 +30,5 @@ public partial class PlayerCameraHandler : Node3D
 	public override void _Process(double delta){
 		Rotation = new Vector3(pitch, -yaw, 0);
 		EmitSignal(SignalName.SetCameraRotation, Rotation.Y);
-
-		if(Input.IsActionJustPressed("ui_esc"))
-		{
-			Input.MouseMode = Input.MouseModeEnum.Visible;
-		}
 	}
 }
