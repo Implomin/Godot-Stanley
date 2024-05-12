@@ -2,6 +2,8 @@ using Godot;
 using System;
 using System.Collections;
 using Narrator;
+using System.Linq;
+using System.Threading;
 public partial class NarratorLogicComponent : Node
 {
 	private ArrayList playerActions = new ArrayList();
@@ -10,11 +12,19 @@ public partial class NarratorLogicComponent : Node
 	private String importantSignalAction = "";
 	private String importantSignalLocation = "";
 	private HttpRequest httpRequest;
+	private Label label;
+	private AudioStreamPlayer audioStreamPlayer;
+	private AudioStreamWav wav;
 
 	public override void _Ready()
 	{
 		base._Ready();
 		httpRequest = GetNode<HttpRequest>("HTTPRequest");
+		audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+		wav = new Godot.AudioStreamWav();
+		wav.Format = AudioStreamWav.FormatEnum.Format16Bits;
+		wav.MixRate = 16000;
+		label = GetNode<Label>("Label");
 	}
 
 	public void OnSignalArrayRevcieved(string[] signal)
@@ -45,29 +55,46 @@ public partial class NarratorLogicComponent : Node
 	public override void _Process(double delta)
 	{
 		if(importantAction){
-			NarratorUtil.sendRequest(httpRequest, "{\"actions\":[{\"action\": \""+importantSignalAction+"\", \"value\":\""+importantSignalLocation+"\"},]}");
+			NarratorUtil.sendPromptRequest(httpRequest, "{\"actions\":[{\"action\": \""+importantSignalAction+"\", \"value\":\""+importantSignalLocation+"\"},]}");
 			GD.Print("The player has " + importantSignalAction + " at " + importantSignalLocation);
 			importantAction = false;
 			
 		}
 		if(playerActions.Count > 6){
 			GD.Print("The player has " + NarratorUtil.allActionsToString(playerActions, playerLocations));
-			NarratorUtil.sendRequest(httpRequest, NarratorUtil.allActionsToJsonString(playerActions, playerLocations));
+			NarratorUtil.sendPromptRequest(httpRequest, NarratorUtil.allActionsToJsonString(playerActions, playerLocations));
 			playerActions.Clear();
 			playerLocations.Clear();
 		}
 	}
 
-	
-	private void _on_http_request_request_completed(long result, long response_code, string[] headers, byte[] body)
+	private void playSound(byte[] body)
 	{
-		AudioStreamPlayer audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
-		AudioStreamWav wav = new Godot.AudioStreamWav();
-		wav.Data = body;
-		wav.Format = AudioStreamWav.FormatEnum.Format16Bits;
-		wav.MixRate = 16000;
-		audioStreamPlayer.Stream = wav;
-		audioStreamPlayer.Play();
-		GD.Print("RESPONSE CODE: " + response_code);
+
+	}
+
+	
+	private async void _on_http_request_request_completed(long result, long response_code, string[] headers, byte[] body)
+	{
+		if (headers.Contains("Content-Type: text/plain")){
+			// add text to label
+			GD.Print("RESPONSE CODE FROM TEXT: " + response_code);
+
+			String text = System.Text.Encoding.UTF8.GetString(body).Replace("\n", "");
+			NarratorUtil.iterateText(label, text, (float) wav.GetLength(), this);
+			return;
+		}
+
+		if (headers.Contains("Content-Type: audio/wav")) {
+			GD.Print("RESPONSE CODE FROM PROMPT: " + response_code);
+			
+			wav.Data = body;
+			GD.Print("Audio length: " + wav.GetLength());
+			NarratorUtil.sendTextRequest(httpRequest);
+			audioStreamPlayer.Stream = wav;
+			audioStreamPlayer.Play();
+		}
+
+		
 	}
 }

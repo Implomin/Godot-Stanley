@@ -72,4 +72,20 @@ use_threads = true
 stream = SubResource("AudioStreamWAV_2m5g7")
 volume_db = 1.874
 
+[node name="Label" type="Label" parent="NarratorLogic"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -107.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+text = "I AM A DUMMY DUMB I AM A DUMMY DUMB I AM A DUMMY DUMB I AM A DUMMY DUMB I AM A DUMMY DUMB "
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [connection signal="request_completed" from="NarratorLogic/HTTPRequest" to="NarratorLogic" method="_on_http_request_request_completed"]
