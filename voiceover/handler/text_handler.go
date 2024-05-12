@@ -21,6 +21,8 @@ func match_command(action string) string {
 	switch action {
 	case "TURN":
 		return commandsImpl.Turn
+	case "ARRIVE":
+		return commandsImpl.Arrive
 	case "STAND":
 		return commandsImpl.Stand
 	case "WALK":
