@@ -1,4 +1,4 @@
 public class ActionValueVO {
-    public string action;
-    public string value;
+	public string action;
+	public string value;
 }

@@ -15,6 +15,7 @@ public partial class NarratorLogicComponent : Node
 	private Label label;
 	private AudioStreamPlayer audioStreamPlayer;
 	private AudioStreamWav wav;
+	[Export] AudioStreamPlayer MUSOffice;
 
 	public override void _Ready()
 	{
@@ -25,6 +26,7 @@ public partial class NarratorLogicComponent : Node
 		wav.Format = AudioStreamWav.FormatEnum.Format16Bits;
 		wav.MixRate = 16000;
 		label = GetNode<Label>("Label");
+		MUSOffice.Play();
 	}
 
 	public void OnSignalArrayRevcieved(string[] signal)
