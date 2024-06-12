@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://hof3t5moj0jo"]
+
+[ext_resource type="PackedScene" uid="uid://101r7y2bwgb" path="res://environment/itemAssets/assets/anvil/anvil.glb" id="1_ky26a"]
+[ext_resource type="Material" uid="uid://ywifb12o6g7g" path="res://environment/itemAssets/assets/desk/dark_metal.tres" id="2_biyl2"]
+
+[node name="anvil2" instance=ExtResource("1_ky26a")]
+
+[node name="anvil" parent="." index="0"]
+material_override = ExtResource("2_biyl2")

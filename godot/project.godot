@@ -95,3 +95,7 @@ jolt_3d/solver/contact_speculative_distance=0.0
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"
+
+[xr]
+
+shaders/enabled=true
