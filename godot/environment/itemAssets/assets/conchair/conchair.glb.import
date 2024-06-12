@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d2kovyfa4atuv"
-path="res://.godot/imported/chair.glb-9e99cb75401d7550d1ba7c74bc96a416.scn"
+uid="uid://dionhojkjtn31"
+path="res://.godot/imported/conchair.glb-704f2a785c54b7e609d7457077ac5f2d.scn"
 
 [deps]
 
-source_file="res://chair.glb"
-dest_files=["res://.godot/imported/chair.glb-9e99cb75401d7550d1ba7c74bc96a416.scn"]
+source_file="res://environment/itemAssets/assets/conchair/conchair.glb"
+dest_files=["res://.godot/imported/conchair.glb-704f2a785c54b7e609d7457077ac5f2d.scn"]
 
 [params]
 
