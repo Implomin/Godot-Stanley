@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cg3t7pp64w0rv" path="res://characters/player/player_root.tscn" id="2_fp1xm"]
 [ext_resource type="PackedScene" uid="uid://hr2tbs8b3sr3" path="res://environment/modular/arrivedAt.tscn" id="3_udp80"]
 [ext_resource type="PackedScene" uid="uid://3c3kddccavy2" path="res://characters/narrator/narratorLogic.tscn" id="4_fasj4"]
+[ext_resource type="AudioStream" uid="uid://d2e7m76ice044" path="res://environment/sound/MUS/MUS_office.mp3" id="5_5873o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kbxr7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -21,8 +22,6 @@ ssil_radius = 10.0
 ssil_intensity = 1.67
 fog_light_color = Color(0, 0, 0, 1)
 fog_density = 0.0311
-
-[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_2m5g7"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -42,7 +41,8 @@ directional_shadow_split_3 = 0.4
 [node name="PlayerRoot" parent="." instance=ExtResource("2_fp1xm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00627613, 9.53674e-07, 0.000921726)
 
-[node name="NarratorLogic" parent="." instance=ExtResource("4_fasj4")]
+[node name="NarratorLogic" parent="." node_paths=PackedStringArray("MUSOffice") instance=ExtResource("4_fasj4")]
+MUSOffice = NodePath("MUSOffice")
 
 [node name="SignalArrivedAt4" parent="NarratorLogic" instance=ExtResource("3_udp80")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7235, 1.40704, 5.69726)
@@ -68,9 +68,9 @@ location = "toilet"
 [node name="HTTPRequest" type="HTTPRequest" parent="NarratorLogic"]
 use_threads = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="NarratorLogic"]
-stream = SubResource("AudioStreamWAV_2m5g7")
-volume_db = 1.874
+[node name="MUSOffice" type="AudioStreamPlayer" parent="NarratorLogic"]
+stream = ExtResource("5_5873o")
+volume_db = -10.0
 
 [node name="Label" type="Label" parent="NarratorLogic"]
 anchors_preset = 12

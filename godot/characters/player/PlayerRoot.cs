@@ -15,6 +15,7 @@ public partial class PlayerRoot : CharacterBody3D
 
 	float sprintingVal = 1;
 	[Export] float sprintMultiplier = 1.3f;
+	[Export] AudioStreamPlayer SFXFootsteps;
 
 
 	public override void _Ready()
@@ -49,15 +50,22 @@ public partial class PlayerRoot : CharacterBody3D
 			if (DirectionalMovementKeyPressed()){
 				if (Input.IsActionPressed("movement_sprint")){
 					EmitSignal(SignalName.SetMovementState, movementStates["sprint"]);
+					if (!SFXFootsteps.Playing){
+						SFXFootsteps.Play();
+					}
 				}
 				else{
 					EmitSignal(SignalName.SetMovementState, movementStates["walk"]);
+					if (!SFXFootsteps.Playing){
+						SFXFootsteps.Play();
+					}
 				}
 			}else{
 			EmitSignal(SignalName.SetMovementState, movementStates["stand"]);
 		}
 		}else{
 			EmitSignal(SignalName.SetMovementState, movementStates["stand"]);
+			SFXFootsteps.Stop();
 		}
 	}
 }

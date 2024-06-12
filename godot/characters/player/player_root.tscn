@@ -1,10 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://cg3t7pp64w0rv"]
+[gd_scene load_steps=17 format=3 uid="uid://cg3t7pp64w0rv"]
 
 [ext_resource type="Script" path="res://characters/player/PlayerRoot.cs" id="1_ixtfr"]
 [ext_resource type="Script" path="res://characters/player/PlayerMovementHandler.cs" id="2_lfw4o"]
+[ext_resource type="AudioStream" uid="uid://cqcagohuff4b1" path="res://environment/sound/SFX/SFX_footsteps.mp3" id="3_wcuvf"]
 [ext_resource type="Script" path="res://characters/player/RayCast3D.cs" id="4_c16wx"]
+[ext_resource type="AudioStream" uid="uid://c1blc3bkmhva6" path="res://environment/sound/SFX/SFX_jump.mp3" id="4_h2mlh"]
+[ext_resource type="AudioStream" uid="uid://bwc01djkgnlnd" path="res://environment/sound/SFX/SFX_landing.mp3" id="5_mhj38"]
+[ext_resource type="AudioStream" uid="uid://b64bkeynxkhw8" path="res://environment/sound/SFX/SFX_grab.mp3" id="6_hndnl"]
 [ext_resource type="Script" path="res://characters/player/PickupLocationHandler.cs" id="6_itou6"]
 [ext_resource type="Script" path="res://characters/player/PlayerCameraHandler.cs" id="7_84euo"]
+[ext_resource type="AudioStream" uid="uid://cj7sbtdkym6s1" path="res://environment/sound/SFX/SFX_drop.mp3" id="7_dvim5"]
 [ext_resource type="Script" path="res://characters/player/SaveLogic.cs" id="8_e22it"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qjbrm"]
@@ -25,18 +30,42 @@ size = Vector3(0.8, 0.5, 0.5)
 height = 0.6
 radius = 0.35
 
-[node name="PlayerRoot" type="CharacterBody3D"]
+[node name="PlayerRoot" type="CharacterBody3D" node_paths=PackedStringArray("SFXFootsteps")]
 collision_layer = 3
 script = ExtResource("1_ixtfr")
+SFXFootsteps = NodePath("Node/SFXFootsteps")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="SFXFootsteps" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("3_wcuvf")
+volume_db = 1.874
+
+[node name="SFXJump" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("4_h2mlh")
+volume_db = 15.0
+
+[node name="SFXLanding" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("5_mhj38")
+volume_db = 15.0
+
+[node name="SFXGrab" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("6_hndnl")
+volume_db = 15.0
+
+[node name="SFXDrop" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("7_dvim5")
+volume_db = 15.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_qjbrm")
 
-[node name="movementHandler" type="Node3D" parent="." node_paths=PackedStringArray("pickedUpObjectShapecast", "playerCharacter")]
+[node name="movementHandler" type="Node3D" parent="." node_paths=PackedStringArray("pickedUpObjectShapecast", "playerCharacter", "SFXJump")]
 script = ExtResource("2_lfw4o")
 pickedUpObjectShapecast = NodePath("../ShapeCast3D")
 playerCharacter = NodePath("..")
+SFXJump = NodePath("../Node/SFXJump")
 jumpStrength = 16.0
 jumpAcceleration = 8.0
 
@@ -48,11 +77,13 @@ script = ExtResource("7_84euo")
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 0)
 fov = 60.0
 
-[node name="RayCast3D" type="RayCast3D" parent="cameraHandler/Camera3D" node_paths=PackedStringArray("pickUpObjLocation")]
+[node name="RayCast3D" type="RayCast3D" parent="cameraHandler/Camera3D" node_paths=PackedStringArray("pickUpObjLocation", "SFXGrab", "SFXDrop")]
 target_position = Vector3(0, 0, -2.5)
 collision_mask = 4
 script = ExtResource("4_c16wx")
 pickUpObjLocation = NodePath("../../../Node3D/PickupLocation")
+SFXGrab = NodePath("../../../Node/SFXGrab")
+SFXDrop = NodePath("../../../Node/SFXDrop")
 
 [node name="LookAt" type="Node3D" parent="cameraHandler/Camera3D/RayCast3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -2.5)

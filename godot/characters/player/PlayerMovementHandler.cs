@@ -6,6 +6,7 @@ public partial class PlayerMovementHandler : Node3D
 	[Export] ShapeCast3D pickedUpObjectShapecast;
 	[Export] CharacterBody3D playerCharacter;
 	[Export] public float baseMovementSpeed = 5.0f;
+	[Export] AudioStreamPlayer SFXJump;
 	private float acceleration;
 	private float speed;
 	Vector3 destDirection;
@@ -42,6 +43,7 @@ public partial class PlayerMovementHandler : Node3D
 
  		if(Input.IsActionJustPressed("movement_jump") && isGrounded && !isOnPickedUpObject){
 			//GD.Print("jump");
+			SFXJump.Play(0);
 			medianVelocity.Y = jumpStrength * 8;
 		}
 
