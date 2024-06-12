@@ -41,8 +41,7 @@ directional_shadow_split_3 = 0.4
 [node name="PlayerRoot" parent="." instance=ExtResource("2_fp1xm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00627613, 9.53674e-07, 0.000921726)
 
-[node name="NarratorLogic" parent="." node_paths=PackedStringArray("MUSOffice") instance=ExtResource("4_fasj4")]
-MUSOffice = NodePath("MUSOffice")
+[node name="NarratorLogic" parent="." instance=ExtResource("4_fasj4")]
 
 [node name="SignalArrivedAt4" parent="NarratorLogic" instance=ExtResource("3_udp80")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7235, 1.40704, 5.69726)
