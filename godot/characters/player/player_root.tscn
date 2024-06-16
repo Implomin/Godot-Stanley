@@ -34,27 +34,28 @@ radius = 0.35
 [node name="PlayerRoot" type="CharacterBody3D" node_paths=PackedStringArray("SFXFootsteps")]
 collision_layer = 3
 script = ExtResource("1_ixtfr")
-SFXFootsteps = NodePath("Node/SFXFootsteps")
+sprintMultiplier = 1.4
+SFXFootsteps = NodePath("SFX/SFXFootsteps")
 
-[node name="Node" type="Node" parent="."]
+[node name="SFX" type="Node" parent="."]
 
-[node name="SFXFootsteps" type="AudioStreamPlayer" parent="Node"]
+[node name="SFXFootsteps" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("3_wcuvf")
 volume_db = 1.874
 
-[node name="SFXJump" type="AudioStreamPlayer" parent="Node"]
+[node name="SFXJump" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("4_h2mlh")
 volume_db = 15.0
 
-[node name="SFXLanding" type="AudioStreamPlayer" parent="Node"]
+[node name="SFXLanding" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("5_mhj38")
 volume_db = 15.0
 
-[node name="SFXGrab" type="AudioStreamPlayer" parent="Node"]
+[node name="SFXGrab" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("6_hndnl")
 volume_db = 15.0
 
-[node name="SFXDrop" type="AudioStreamPlayer" parent="Node"]
+[node name="SFXDrop" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("7_dvim5")
 volume_db = 15.0
 
@@ -66,9 +67,10 @@ shape = SubResource("CapsuleShape3D_qjbrm")
 script = ExtResource("2_lfw4o")
 pickedUpObjectShapecast = NodePath("../ShapeCast3D")
 playerCharacter = NodePath("..")
-SFXJump = NodePath("../Node/SFXJump")
-jumpStrength = 16.0
-jumpAcceleration = 8.0
+baseMovementSpeed = 3.0
+SFXJump = NodePath("../SFX/SFXJump")
+jumpStrength = 6.0
+jumpAcceleration = 6.0
 
 [node name="cameraHandler" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -84,8 +86,8 @@ target_position = Vector3(0, 0, -2.5)
 collision_mask = 4
 script = ExtResource("4_c16wx")
 pickUpObjLocation = NodePath("../../../Node3D/PickupLocation")
-SFXGrab = NodePath("../../../Node/SFXGrab")
-SFXDrop = NodePath("../../../Node/SFXDrop")
+SFXGrab = NodePath("../../../SFX/SFXGrab")
+SFXDrop = NodePath("../../../SFX/SFXDrop")
 
 [node name="LookAt" type="Node3D" parent="cameraHandler/Camera3D/RayCast3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -2.5)
