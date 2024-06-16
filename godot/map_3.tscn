@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://hhnq1rfmrfvt"]
-
-[ext_resource type="PackedScene" uid="uid://7otsyls1wj3e" path="res://environment/maps/map3.glb" id="1_32k27"]
-
-[node name="map3" instance=ExtResource("1_32k27")]
