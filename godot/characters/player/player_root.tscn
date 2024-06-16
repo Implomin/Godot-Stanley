@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://characters/player/SaveLogic.cs" id="8_e22it"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qjbrm"]
+radius = 0.35
 height = 1.8
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_5cqhn"]
@@ -75,6 +76,7 @@ script = ExtResource("7_84euo")
 
 [node name="Camera3D" type="Camera3D" parent="cameraHandler"]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 0)
+current = true
 fov = 60.0
 
 [node name="RayCast3D" type="RayCast3D" parent="cameraHandler/Camera3D" node_paths=PackedStringArray("pickUpObjLocation", "SFXGrab", "SFXDrop")]

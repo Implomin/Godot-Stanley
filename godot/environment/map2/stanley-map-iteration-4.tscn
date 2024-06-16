@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://sjxcpmhdeno6"]
+
+[ext_resource type="PackedScene" uid="uid://drvq0tjygv7by" path="res://environment/map2/stanley-scene1.glb" id="1_vg5dy"]
+
+[node name="Stanley-map-iteration-4" type="Node3D"]
+
+[node name="stanley-scene1" parent="." instance=ExtResource("1_vg5dy")]

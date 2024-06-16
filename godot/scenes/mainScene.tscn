@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://5xkbprsot27e"]
 
-[ext_resource type="PackedScene" uid="uid://ffvyutrktanf" path="res://scenes/testEnvironment.tscn" id="1_d8wmk"]
 [ext_resource type="PackedScene" uid="uid://cg3t7pp64w0rv" path="res://characters/player/player_root.tscn" id="2_fp1xm"]
 [ext_resource type="PackedScene" uid="uid://hr2tbs8b3sr3" path="res://environment/modular/arrivedAt.tscn" id="3_udp80"]
 [ext_resource type="PackedScene" uid="uid://3c3kddccavy2" path="res://characters/narrator/narratorLogic.tscn" id="4_fasj4"]
 [ext_resource type="AudioStream" uid="uid://d2e7m76ice044" path="res://environment/sound/MUS/MUS_office.mp3" id="5_5873o"]
+[ext_resource type="PackedScene" uid="uid://dmua5iqo8m6dh" path="res://environment/map2/stanley-floor-iteration-5.tscn" id="5_llqr5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kbxr7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -23,7 +23,7 @@ ssil_intensity = 1.67
 fog_light_color = Color(0, 0, 0, 1)
 fog_density = 0.0311
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lbcrp")
@@ -36,12 +36,11 @@ directional_shadow_split_1 = 0.05
 directional_shadow_split_2 = 0.1
 directional_shadow_split_3 = 0.4
 
-[node name="EnvironmentRoot" parent="." instance=ExtResource("1_d8wmk")]
-
 [node name="PlayerRoot" parent="." instance=ExtResource("2_fp1xm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00627613, 9.53674e-07, 0.000921726)
 
-[node name="NarratorLogic" parent="." instance=ExtResource("4_fasj4")]
+[node name="NarratorLogic" parent="." node_paths=PackedStringArray("MUSOffice") instance=ExtResource("4_fasj4")]
+MUSOffice = NodePath("MUSOffice")
 
 [node name="SignalArrivedAt4" parent="NarratorLogic" instance=ExtResource("3_udp80")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7235, 1.40704, 5.69726)
@@ -86,5 +85,7 @@ theme_override_font_sizes/font_size = 25
 text = "I AM A DUMMY DUMB I AM A DUMMY DUMB I AM A DUMMY DUMB I AM A DUMMY DUMB I AM A DUMMY DUMB "
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="stanley-scene1" parent="." instance=ExtResource("5_llqr5")]
 
 [connection signal="request_completed" from="NarratorLogic/HTTPRequest" to="NarratorLogic" method="_on_http_request_request_completed"]
