@@ -5,18 +5,20 @@ public partial class RayCast3D : Godot.RayCast3D
 {
 
 	[Export] Node3D pickUpObjLocation;
+	[Export] AudioStreamPlayer SFXGrab;
+	[Export] AudioStreamPlayer SFXDrop;
 	Pickupable lookingAtObject = null; 
 	bool currentlyPickingUp = false;
 	bool isColliding = false;
 
-    public override void _PhysicsProcess(double delta)
-    {
-        if(IsColliding() && lookingAtObject == null){
+	public override void _PhysicsProcess(double delta)
+	{
+		if(IsColliding() && lookingAtObject == null){
 			lookingAtObject = (Pickupable)GetCollider();
 		}
-    }
+	}
 
-    public override void _Process(double delta) {
+	public override void _Process(double delta) {
 
 		if(lookingAtObject != null){
 			if(currentlyPickingUp){
@@ -28,6 +30,7 @@ public partial class RayCast3D : Godot.RayCast3D
 					lookingAtObject.isPickedUp = false;
 					currentlyPickingUp = false;
 					GD.Print("Dropped object");
+					SFXDrop.Play();
 				}
 			}else{
 				lookingAtObject.GravityScale = 1f;
@@ -40,6 +43,7 @@ public partial class RayCast3D : Godot.RayCast3D
 						lookingAtObject.isPickedUp = true;
 						currentlyPickingUp = true;
 						GD.Print("Picked up object");
+						SFXGrab.Play();
 					}
 				}
 			}

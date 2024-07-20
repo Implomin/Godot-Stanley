@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://wqve8vffvvix"]
+
+[ext_resource type="Script" path="res://characters/xrPlayer/xr_player.cs" id="1_8pov1"]
+[ext_resource type="Texture2D" uid="uid://jj1bqkgavukb" path="res://environment/median/tile3.png" id="1_dxiu7"]
+[ext_resource type="Material" uid="uid://dviaupps4ckjg" path="res://environment/median/tileMaterial2.tres" id="2_scc3r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l3hsk"]
+albedo_texture = ExtResource("1_dxiu7")
+
+[node name="XRStuff" type="Node3D"]
+script = ExtResource("1_8pov1")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="leftController" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+tracker = &"left_hand"
+
+[node name="leftBox" type="CSGBox3D" parent="XROrigin3D/leftController"]
+material_override = SubResource("StandardMaterial3D_l3hsk")
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="rightController" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+tracker = &"right_hand"
+
+[node name="rightBox" type="CSGBox3D" parent="XROrigin3D/rightController"]
+material_override = ExtResource("2_scc3r")
+size = Vector3(0.1, 0.1, 0.1)

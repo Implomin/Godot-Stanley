@@ -3,9 +3,11 @@ using System;
 
 public partial class PlayerMovementHandler : Node3D
 {
+	AudioStreamPlayer audioStreamPlayer;
 	[Export] ShapeCast3D pickedUpObjectShapecast;
 	[Export] CharacterBody3D playerCharacter;
 	[Export] public float baseMovementSpeed = 5.0f;
+	[Export] AudioStreamPlayer SFXJump;
 	private float acceleration;
 	private float speed;
 	Vector3 destDirection;
@@ -42,7 +44,9 @@ public partial class PlayerMovementHandler : Node3D
 
  		if(Input.IsActionJustPressed("movement_jump") && isGrounded && !isOnPickedUpObject){
 			//GD.Print("jump");
+			SFXJump.Play(0);
 			medianVelocity.Y = jumpStrength * 8;
+			
 		}
 
 		playerCharacter.Velocity = ReusableMethods.LerpVector3WithDifferentWeightForY(playerCharacter.Velocity, medianVelocity, (float)delta*acceleration, (float)delta*jumpAcceleration/*1 - (float)Mathf.Pow(0.5f, delta * acceleration), 1 - (float)Mathf.Pow(0.5f, delta * jumpAcceleration)*/);
