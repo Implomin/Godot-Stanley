@@ -134,6 +134,43 @@ func write(reader *io.PipeReader, w http.ResponseWriter) {
 
 }
 
+func Handle_free_prompt(w http.ResponseWriter, r *http.Request) {
+	defer r.Body.Close()
+	result, err := io.ReadAll(r.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	prompt_request := model.Prompt_request{}
+	json.Unmarshal(result, &prompt_request)
+
+	prompt := "You are angry. Your task is to make a SHORT and FUNNY comment. Make fun of an idiot who:" + prompt_request.Actions[0].Value
+	fmt.Println("Your free prompt: " + prompt)
+	request := model.Ollama_request{Model: "tinydolphin", Prompt: prompt, Stream: false}
+	prompt_result, err := json.Marshal(request)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	ollama_response_body := get_prompt(prompt_result)
+	ollama_response := strings.ReplaceAll(ollama_response_body.Response, "\"", "\\\"")
+
+	services.SetPrompt(ollama_response)
+	//	p := fmt.Sprintf(`{"prompt": "%s"}`, ollama_response)
+	fmt.Println(ollama_response)
+	// pipe, cmd := delegate_to_tts(ollama_response)
+	// cmd.Start()
+	pipe := connect_with_cogui_server(ollama_response)
+	w.Header().Add("Content-Type", "audio/wav")
+	written, err := io.Copy(w, pipe)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("Written %d", written)
+	// cmd.Wait()
+	pipe.Close()
+}
+
 func Handle_prompt(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 	result, err := io.ReadAll(r.Body)
