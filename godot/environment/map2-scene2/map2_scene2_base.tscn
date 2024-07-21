@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg7c1f3dui25k"]
+
+[ext_resource type="PackedScene" uid="uid://cyvuatrkmneup" path="res://environment/map2-scene2/stanley_scene_2_detailedmesh.tscn" id="3_0timq"]
+[ext_resource type="LightmapGIData" uid="uid://c4ueu1sr0wrpd" path="res://environment/map2-scene2/map2_scene2_base.lmbake" id="3_oypfp"]
+[ext_resource type="PackedScene" uid="uid://cts8mxvyr4dr4" path="res://environment/map2-scene2/stanley_scene_2_hitboxes.tscn" id="3_r7tbg"]
+[ext_resource type="PackedScene" uid="uid://cg3t7pp64w0rv" path="res://characters/player/player_root.tscn" id="3_yub3o"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="PlayerRoot" parent="." instance=ExtResource("3_yub3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.470098, 0, 2.96367)
+
+[node name="stanley-scene2-hitboxes" parent="." instance=ExtResource("3_r7tbg")]
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+light_data = ExtResource("3_oypfp")
+
+[node name="stanley-scene2" parent="." instance=ExtResource("3_0timq")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, -3.32118, 3.72237, -2.78159)
+light_bake_mode = 1
+spot_range = 7.0
+spot_angle = 70.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, -2.68944, 3.72237, 5.2456)
+light_bake_mode = 1
+spot_range = 7.0
+spot_angle = 70.0
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, 3.1797, 3.72237, -2.49301)
+light_bake_mode = 1
+spot_range = 7.0
+spot_angle = 70.0
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, 0.394358, 3.72237, 1.11762)
+light_bake_mode = 1
+spot_range = 7.0
+spot_angle = 70.0
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, -8.35688, 3.28152, -3.02726)
+light_bake_mode = 1
+spot_range = 7.0
+spot_angle = 70.0
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, 6.03491, 2.01116, -2.68225)
+light_bake_mode = 1
+spot_range = 7.0
+spot_angle = 70.0
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, -3.08318, 3.72237, 7.86516)
+light_bake_mode = 1
+spot_range = 7.0
+spot_angle = 70.0
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, -0.0273886, 2.11423, 7.96373)
+light_bake_mode = 1
+spot_range = 7.0
+spot_angle = 70.0

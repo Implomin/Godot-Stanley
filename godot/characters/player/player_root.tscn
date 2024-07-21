@@ -69,7 +69,7 @@ pickedUpObjectShapecast = NodePath("../ShapeCast3D")
 playerCharacter = NodePath("..")
 baseMovementSpeed = 3.0
 SFXJump = NodePath("../SFX/SFXJump")
-jumpStrength = 6.0
+jumpStrength = 7.5
 jumpAcceleration = 6.0
 
 [node name="cameraHandler" type="Node3D" parent="."]
