@@ -33,6 +33,7 @@ public partial class PlayerRoot : CharacterBody3D
 	
 	public override void _Process (double delta)
 	{
+		//GD.Print("Good/Bad JavaDoc: " + hasGoodJavaDoc + "/" + hasBadJavaDoc);
 		inputVector = Input.GetVector("movement_right", "movement_left", "movement_down", "movement_up");
 		EmitSignal(SignalName.SetMovementDirection, inputVector);
 

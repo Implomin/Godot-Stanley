@@ -29,7 +29,7 @@ namespace Narrator
 		return res + "]}";
 	}
 
-	public static void sendPromptRequest(HttpRequest httpRequest, string request) {
+	public static void SendPromptRequest(HttpRequest httpRequest, string request) {
 		string BACKEND = "http://localhost:5051/prompt";
 		Error err = httpRequest.Request(
 		BACKEND,
@@ -45,7 +45,23 @@ namespace Narrator
 		}
 	}
 
-	public static void sendTextRequest(HttpRequest httpRequest) {
+		public static void SendFreePromptRequest(HttpRequest httpRequest, string request) {
+		string BACKEND = "http://localhost:5051/free-prompt";
+		Error err = httpRequest.Request(
+		BACKEND,
+		new string[]{"Content-Type: application/json"},
+		HttpClient.Method.Post,
+		request
+		);
+		if (err == Error.Busy) {
+			GD.Print("Waiting for other request to complete");
+		}
+		if (err != Error.Ok) {
+			GD.PushError("An error occured: " + err);
+		}
+	}
+
+	public static void SendTextRequest(HttpRequest httpRequest) {
 		string BACKEND = "http://localhost:5051/text";
 		Error err = httpRequest.Request(
 		BACKEND,
@@ -59,7 +75,7 @@ namespace Narrator
 	}
 
 
-	private static string getTextFromArray(string[] textArray) {
+	private static string GetTextFromArray(string[] textArray) {
 		string result = "";
 		for (int i = 0; i < textArray.Length;i++) {
 			result += " " + textArray[i];
@@ -68,7 +84,7 @@ namespace Narrator
 		return result;
 	}
 
-	public async static void iterateText(Label label, String text, float wavLength, Node timer) {
+	public async static void IterateText(Label label, String text, float wavLength, Node timer) {
 		// calculate number of words AND letters to make a better assumption
 		int modifier = 4;
 		string[] words = text.Split(" ");
@@ -82,7 +98,7 @@ namespace Narrator
 		for (int i = 0; i < wavLength; i++) {
 			if( wordsLength - (i * wPS) == last ) {
 				Array.Copy(words, wPS * i, copiedWords, 0, last);
-				label.Text = getTextFromArray(copiedWords);
+				label.Text = GetTextFromArray(copiedWords);
 				await timer.ToSignal(timer.GetTree().CreateTimer(modifier), SceneTreeTimer.SignalName.Timeout);
 				label.Text = "";
 				return;
@@ -90,7 +106,7 @@ namespace Narrator
 				Array.Copy(words, wPS * i, copiedWords, 0, wPS);
 			}
 
-			label.Text = getTextFromArray(copiedWords);
+			label.Text = GetTextFromArray(copiedWords);
 			await timer.ToSignal(timer.GetTree().CreateTimer(modifier), SceneTreeTimer.SignalName.Timeout);
 		}
 	}

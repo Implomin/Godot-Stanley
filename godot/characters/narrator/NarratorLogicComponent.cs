@@ -9,8 +9,12 @@ public partial class NarratorLogicComponent : Node
 	private ArrayList playerActions = new ArrayList();
 	private ArrayList playerLocations = new ArrayList();
 	private bool importantAction = false;
+	private bool importantFreePromptAction = false;
+
 	private String importantSignalAction = "";
 	private String importantSignalLocation = "";
+	private String importantSignalFreePrompt = "";
+
 	private HttpRequest httpRequest;
 	private Label label;
 	private AudioStreamPlayer audioStreamPlayer;
@@ -54,19 +58,38 @@ public partial class NarratorLogicComponent : Node
 		// this may be cool in some cases idk
 	}
 
+		public void OnImportantFreePromptSignalRecieved(String prompt)
+	{
+		GD.Print("Important Free-Prompt signal: " + prompt);
+		importantSignalFreePrompt = prompt;
+		importantFreePromptAction = true;
+/* 		printAllActions(); */
+		// this may be cool in some cases idk
+	}
+
 	public override void _Process(double delta)
 	{
 		if(importantAction){
-			NarratorUtil.sendPromptRequest(httpRequest, "{\"actions\":[{\"action\": \""+importantSignalAction+"\", \"value\":\""+importantSignalLocation+"\"},]}");
+			NarratorUtil.SendPromptRequest(httpRequest, "{\"actions\":[{\"action\": \""+importantSignalAction+"\", \"value\":\""+importantSignalLocation+"\"}]}");
 			GD.Print("The player has " + importantSignalAction + " at " + importantSignalLocation);
 			importantAction = false;
-			
+		}
+		if(importantFreePromptAction){
+			NarratorUtil.SendPromptRequest(httpRequest, "{\"free-prompt\":[{\""+importantSignalFreePrompt+"\"}]}");
+			GD.Print("The player has " + importantSignalFreePrompt);
+			importantFreePromptAction = false;
 		}
 		if(playerActions.Count > 6){
 			GD.Print("The player has " + NarratorUtil.allActionsToString(playerActions, playerLocations));
-			NarratorUtil.sendPromptRequest(httpRequest, NarratorUtil.allActionsToJsonString(playerActions, playerLocations));
+			NarratorUtil.SendPromptRequest(httpRequest, NarratorUtil.allActionsToJsonString(playerActions, playerLocations));
 			playerActions.Clear();
 			playerLocations.Clear();
+		}
+
+		if(label.Text != ""){
+			MUSOffice.VolumeDb = -30;
+		}else{
+			MUSOffice.VolumeDb = -10;
 		}
 	}
 
@@ -83,7 +106,7 @@ public partial class NarratorLogicComponent : Node
 			GD.Print("RESPONSE CODE FROM TEXT: " + response_code);
 
 			String text = System.Text.Encoding.UTF8.GetString(body).Replace("\n", "");
-			NarratorUtil.iterateText(label, text, (float) wav.GetLength(), this);
+			NarratorUtil.IterateText(label, text, (float) wav.GetLength(), this);
 			return;
 		}
 
@@ -92,7 +115,7 @@ public partial class NarratorLogicComponent : Node
 			
 			wav.Data = body;
 			GD.Print("Audio length: " + wav.GetLength());
-			NarratorUtil.sendTextRequest(httpRequest);
+			NarratorUtil.SendTextRequest(httpRequest);
 			audioStreamPlayer.Stream = wav;
 			audioStreamPlayer.Play();
 		}

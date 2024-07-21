@@ -29,7 +29,7 @@ public partial class RayCast3D : Godot.RayCast3D
 				if(Input.IsActionJustPressed("interaction_pickup")){
 					lookingAtObject.isPickedUp = false;
 					currentlyPickingUp = false;
-					GD.Print("Dropped object");
+					//GD.Print("Dropped object");
 					SFXDrop.Play();
 				}
 			}else{
@@ -37,12 +37,12 @@ public partial class RayCast3D : Godot.RayCast3D
 
 				if(IsColliding()){
 					lookingAtObject = (Pickupable)GetCollider();
-					GD.Print("obj detected: " + lookingAtObject.Name);
+					//GD.Print("obj detected: " + lookingAtObject.Name);
 
 					if(Input.IsActionJustPressed("interaction_pickup")){
 						lookingAtObject.isPickedUp = true;
 						currentlyPickingUp = true;
-						GD.Print("Picked up object");
+						//GD.Print("Picked up object");
 						SFXGrab.Play();
 					}
 				}

@@ -10,12 +10,12 @@
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_qlu2y"]
+[sub_resource type="Sky" id="Sky_v8byn"]
 sky_material = SubResource("ProceduralSkyMaterial_kbxr7")
 
 [sub_resource type="Environment" id="Environment_lbcrp"]
 background_mode = 2
-sky = SubResource("Sky_qlu2y")
+sky = SubResource("Sky_v8byn")
 ambient_light_sky_contribution = 0.0
 tonemap_mode = 2
 ssil_radius = 10.0
@@ -43,22 +43,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00627613, 9.53674e-07, 0.00
 MUSOffice = NodePath("MUSOffice")
 
 [node name="SignalArrivedAt4" parent="NarratorLogic" instance=ExtResource("3_udp80")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7235, 1.40704, 5.69726)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.456536, 1.40704, 4.69819)
 action = "ARRIVE"
 location = "stairs"
+important = true
 
 [node name="SignalArrivedAt3" parent="NarratorLogic" instance=ExtResource("3_udp80")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6518, 0.909812, -2.35803)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0479, 0.94597, -6.69775)
 action = "ARRIVE"
-location = "blackbox"
+location = "corner office"
 
 [node name="SignalWalk" parent="NarratorLogic" instance=ExtResource("3_udp80")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01402, -0.0915983, 2.04618)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19041, 0.953727, -1.37172)
 action = "ARRIVE"
-location = "ramp"
+location = "small office room"
 
 [node name="SignalArrivedAt" parent="NarratorLogic" instance=ExtResource("3_udp80")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0563, 0.936317, -6.52123)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.90929, 0.936317, -4.84187)
 action = "ARRIVE"
 location = "toilet"
 
@@ -81,9 +82,9 @@ grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 25
-text = "I AM A DUMMY DUMB I AM A DUMMY DUMB I AM A DUMMY DUMB I AM A DUMMY DUMB I AM A DUMMY DUMB "
 horizontal_alignment = 1
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="stanley-scene1" parent="." instance=ExtResource("5_llqr5")]
 

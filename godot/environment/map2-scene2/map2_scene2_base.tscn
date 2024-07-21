@@ -84,29 +84,29 @@ MUSOffice = NodePath("MUSOffice")
 
 [node name="SignalArrivedAt" parent="NarratorLogic" instance=ExtResource("5_e3x45")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.94858, 0.767651, -2.85135)
-action = "free-prompt"
-location = "Player arrived at the server room after you told them not to go there. Scold them briefly."
+action = "ARRIVE"
+location = "SERVER ROOM. Player arrived at the server room after you told them not to go there. Scold them briefly."
 important = true
 oneTime = true
 
 [node name="SignalArrivedAt2" parent="NarratorLogic" instance=ExtResource("5_e3x45")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60833, 2.27557, -2.88311)
-action = "free-prompt"
-location = "Player arrived at the JavaDoc storage room according to your wishes. Shortly encourage them to grab the JavaDoc that they see in front of them."
+action = "ARRIVE"
+location = "JAVADOC STORAGE ROOM. Player arrived at the JavaDoc storage room according to your wishes. Shortly encourage them to grab the JavaDoc that they see in front of them."
 important = true
 oneTime = true
 
 [node name="SignalArrivedAt3" parent="NarratorLogic" instance=ExtResource("5_e3x45")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.168367, 1.20702, 4.10951)
-action = "free-prompt"
-location = "Player is on the second floor. Explain, that the entrance room to the JavaDoc storage is on the left but it is currently blocked off. The Player should grab boxes and use them to climb to the Storage room."
+action = "ARRIVE"
+location = "SECOND FLOOR. Player is on the second floor. Explain, that the entrance room to the JavaDoc storage is on the left but it is currently blocked off. The Player should grab boxes and use them to climb to the Storage room."
 important = true
 oneTime = true
 
 [node name="SignalArrivedAt4" parent="NarratorLogic" instance=ExtResource("5_e3x45")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91282, 2.75152, 8.10932)
-action = "free-prompt"
-location = "Player arrived in a forbidden place. Tell them not to pick anything up and scold them."
+action = "ARRIVE"
+location = "FORBIDDEN PLACE where BAD JAVADOCS are present. Tell them not to pick anything up and scold them."
 important = true
 oneTime = true
 
@@ -134,11 +134,13 @@ autowrap_mode = 3
 
 [node name="SignalArrivedAt5" parent="NarratorLogic" instance=ExtResource("8_0xcw3")]
 transform = Transform3D(-0.943812, 0, 0.330481, 0, 1, 0, -0.330481, 0, -0.943812, -3.04419, 2.65539, 8.00552)
+action = "ARRIVE"
 location = "Player picked up the bad JavaDoc. Scold them!"
 good = false
 
 [node name="SignalArrivedAt6" parent="NarratorLogic" instance=ExtResource("9_3ljo8")]
 transform = Transform3D(-0.186267, 0, 0.982499, 0, 1, 0, -0.982499, 0, -0.186267, -8.4661, 2.10393, -3.01874)
+action = "ARRIVE"
 location = "Player picked up the good JavaDoc. Praise them!"
 
 [node name="pickupable_test" parent="." instance=ExtResource("8_x8w3t")]
