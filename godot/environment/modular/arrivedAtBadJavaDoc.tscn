@@ -17,6 +17,7 @@ shape = SubResource("CylinderShape3D_i71x7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.258947, 0)
 light_color = Color(1, 0.74902, 0.74902, 1)
 light_energy = 0.44
+omni_range = 1.5
 
 [node name="badJavaDoc" parent="." instance=ExtResource("2_gq5nn")]
 transform = Transform3D(1, 0, 0, 0, 0.287361, -0.957823, 0, 0.957823, 0.287361, 0, 0, 0)
