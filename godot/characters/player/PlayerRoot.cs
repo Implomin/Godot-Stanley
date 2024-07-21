@@ -16,6 +16,7 @@ public partial class PlayerRoot : CharacterBody3D
 	float sprintingVal = 1;
 	[Export] float sprintMultiplier = 1.3f;
 	[Export] AudioStreamPlayer SFXFootsteps;
+	[Export] AudioStreamPlayer SFXSprint;
 
 
 	public override void _Ready()

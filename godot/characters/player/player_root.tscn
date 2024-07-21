@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cg3t7pp64w0rv"]
+[gd_scene load_steps=18 format=3 uid="uid://cg3t7pp64w0rv"]
 
 [ext_resource type="Script" path="res://characters/player/PlayerRoot.cs" id="1_ixtfr"]
 [ext_resource type="Script" path="res://characters/player/PlayerMovementHandler.cs" id="2_lfw4o"]
+[ext_resource type="AudioStream" uid="uid://cscpxtjn7gchv" path="res://environment/sound/SFX/SFX_sprint.mp3" id="2_x8rlt"]
 [ext_resource type="AudioStream" uid="uid://cqcagohuff4b1" path="res://environment/sound/SFX/SFX_footsteps.mp3" id="3_wcuvf"]
 [ext_resource type="Script" path="res://characters/player/RayCast3D.cs" id="4_c16wx"]
 [ext_resource type="AudioStream" uid="uid://c1blc3bkmhva6" path="res://environment/sound/SFX/SFX_jump.mp3" id="4_h2mlh"]
@@ -39,23 +40,27 @@ SFXFootsteps = NodePath("Node/SFXFootsteps")
 
 [node name="SFXFootsteps" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("3_wcuvf")
-volume_db = 1.874
+volume_db = -5.0
 
 [node name="SFXJump" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("4_h2mlh")
-volume_db = 15.0
+volume_db = 10.0
 
 [node name="SFXLanding" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("5_mhj38")
-volume_db = 15.0
+volume_db = 10.0
 
 [node name="SFXGrab" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("6_hndnl")
-volume_db = 15.0
+volume_db = 10.0
 
 [node name="SFXDrop" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("7_dvim5")
-volume_db = 15.0
+volume_db = 10.0
+
+[node name="SFXSprint" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("2_x8rlt")
+volume_db = -5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
