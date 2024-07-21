@@ -46,7 +46,6 @@ MUSOffice = NodePath("MUSOffice")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7235, 1.40704, 5.69726)
 action = "ARRIVE"
 location = "stairs"
-important = true
 
 [node name="SignalArrivedAt3" parent="NarratorLogic" instance=ExtResource("3_udp80")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6518, 0.909812, -2.35803)

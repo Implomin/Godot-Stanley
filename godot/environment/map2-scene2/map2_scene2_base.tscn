@@ -1,66 +1,153 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg7c1f3dui25k"]
+[gd_scene load_steps=11 format=3 uid="uid://dg7c1f3dui25k"]
 
 [ext_resource type="PackedScene" uid="uid://cyvuatrkmneup" path="res://environment/map2-scene2/stanley_scene_2_detailedmesh.tscn" id="3_0timq"]
 [ext_resource type="LightmapGIData" uid="uid://c4ueu1sr0wrpd" path="res://environment/map2-scene2/map2_scene2_base.lmbake" id="3_oypfp"]
 [ext_resource type="PackedScene" uid="uid://cts8mxvyr4dr4" path="res://environment/map2-scene2/stanley_scene_2_hitboxes.tscn" id="3_r7tbg"]
 [ext_resource type="PackedScene" uid="uid://cg3t7pp64w0rv" path="res://characters/player/player_root.tscn" id="3_yub3o"]
+[ext_resource type="PackedScene" uid="uid://hr2tbs8b3sr3" path="res://environment/modular/arrivedAt.tscn" id="5_e3x45"]
+[ext_resource type="PackedScene" uid="uid://3c3kddccavy2" path="res://characters/narrator/narratorLogic.tscn" id="5_wrpk5"]
+[ext_resource type="AudioStream" uid="uid://d2e7m76ice044" path="res://environment/sound/MUS/MUS_office.mp3" id="7_7lowe"]
+[ext_resource type="PackedScene" uid="uid://daq2gmyweuu8o" path="res://environment/modular/arrivedAtBadJavaDoc.tscn" id="8_0xcw3"]
+[ext_resource type="PackedScene" uid="uid://bn8myhbfa3job" path="res://environment/itemAssets/scenes/pickupable/pickupable-test.tscn" id="8_x8w3t"]
+[ext_resource type="PackedScene" uid="uid://vu5lmie33ehm" path="res://environment/modular/arrivedAtGoodJavaDoc.tscn" id="9_3ljo8"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="PlayerRoot" parent="." instance=ExtResource("3_yub3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.470098, 0, 2.96367)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12867, 0, 7.29743)
 
 [node name="stanley-scene2-hitboxes" parent="." instance=ExtResource("3_r7tbg")]
 
-[node name="LightmapGI" type="LightmapGI" parent="."]
-light_data = ExtResource("3_oypfp")
+[node name="stanley-scene2-mesh" parent="." instance=ExtResource("3_0timq")]
 
-[node name="stanley-scene2" parent="." instance=ExtResource("3_0timq")]
+[node name="lights" type="Node" parent="."]
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
+[node name="SpotLight3D" type="SpotLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, -3.32118, 3.72237, -2.78159)
 light_bake_mode = 1
 spot_range = 7.0
 spot_angle = 70.0
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+[node name="SpotLight3D9" type="SpotLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, 2.43946, 3.51106, 4.36492)
+light_bake_mode = 1
+spot_range = 7.0
+spot_angle = 70.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, -2.68944, 3.72237, 5.2456)
 light_bake_mode = 1
 spot_range = 7.0
 spot_angle = 70.0
 
-[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+[node name="SpotLight3D3" type="SpotLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, 3.1797, 3.72237, -2.49301)
 light_bake_mode = 1
 spot_range = 7.0
 spot_angle = 70.0
 
-[node name="SpotLight3D4" type="SpotLight3D" parent="."]
+[node name="SpotLight3D4" type="SpotLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, 0.394358, 3.72237, 1.11762)
 light_bake_mode = 1
 spot_range = 7.0
 spot_angle = 70.0
 
-[node name="SpotLight3D5" type="SpotLight3D" parent="."]
+[node name="SpotLight3D5" type="SpotLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, -8.35688, 3.28152, -3.02726)
 light_bake_mode = 1
 spot_range = 7.0
 spot_angle = 70.0
 
-[node name="SpotLight3D6" type="SpotLight3D" parent="."]
+[node name="SpotLight3D6" type="SpotLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, 6.03491, 2.01116, -2.68225)
 light_bake_mode = 1
 spot_range = 7.0
 spot_angle = 70.0
 
-[node name="SpotLight3D7" type="SpotLight3D" parent="."]
+[node name="SpotLight3D7" type="SpotLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, -3.08318, 3.72237, 7.86516)
 light_bake_mode = 1
 spot_range = 7.0
 spot_angle = 70.0
 
-[node name="SpotLight3D8" type="SpotLight3D" parent="."]
+[node name="SpotLight3D8" type="SpotLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -0.00144867, 0.999999, 0, -0.999999, -0.00144867, -0.0273886, 2.11423, 7.96373)
 light_bake_mode = 1
 spot_range = 7.0
 spot_angle = 70.0
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+light_data = ExtResource("3_oypfp")
+
+[node name="NarratorLogic" parent="." node_paths=PackedStringArray("MUSOffice") instance=ExtResource("5_wrpk5")]
+MUSOffice = NodePath("MUSOffice")
+
+[node name="SignalArrivedAt" parent="NarratorLogic" instance=ExtResource("5_e3x45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.94858, 0.767651, -2.85135)
+action = "free-prompt"
+location = "Player arrived at the server room after you told them not to go there. Scold them briefly."
+important = true
+oneTime = true
+
+[node name="SignalArrivedAt2" parent="NarratorLogic" instance=ExtResource("5_e3x45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60833, 2.27557, -2.88311)
+action = "free-prompt"
+location = "Player arrived at the JavaDoc storage room according to your wishes. Shortly encourage them to grab the JavaDoc that they see in front of them."
+important = true
+oneTime = true
+
+[node name="SignalArrivedAt3" parent="NarratorLogic" instance=ExtResource("5_e3x45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.168367, 1.20702, 4.10951)
+action = "free-prompt"
+location = "Player is on the second floor. Explain, that the entrance room to the JavaDoc storage is on the left but it is currently blocked off. The Player should grab boxes and use them to climb to the Storage room."
+important = true
+oneTime = true
+
+[node name="SignalArrivedAt4" parent="NarratorLogic" instance=ExtResource("5_e3x45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91282, 2.75152, 8.10932)
+action = "free-prompt"
+location = "Player arrived in a forbidden place. Tell them not to pick anything up and scold them."
+important = true
+oneTime = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="NarratorLogic"]
+use_threads = true
+
+[node name="MUSOffice" type="AudioStreamPlayer" parent="NarratorLogic"]
+stream = ExtResource("7_7lowe")
+volume_db = -10.0
+
+[node name="Label" type="Label" parent="NarratorLogic"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -107.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="SignalArrivedAt5" parent="NarratorLogic" instance=ExtResource("8_0xcw3")]
+transform = Transform3D(-0.943812, 0, 0.330481, 0, 1, 0, -0.330481, 0, -0.943812, -3.04419, 2.65539, 8.00552)
+location = "Player picked up the bad JavaDoc. Scold them!"
+good = false
+
+[node name="SignalArrivedAt6" parent="NarratorLogic" instance=ExtResource("9_3ljo8")]
+transform = Transform3D(-0.186267, 0, 0.982499, 0, 1, 0, -0.982499, 0, -0.186267, -8.4661, 2.10393, -3.01874)
+location = "Player picked up the good JavaDoc. Praise them!"
+
+[node name="pickupable_test" parent="." instance=ExtResource("8_x8w3t")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.21938, 0.451301, 4.99137)
+
+[node name="pickupable_test2" parent="." instance=ExtResource("8_x8w3t")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.91555, 0.451301, 4.80648)
+
+[node name="pickupable_test3" parent="." instance=ExtResource("8_x8w3t")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.08407, 0.451301, 3.89312)
+
+[connection signal="request_completed" from="NarratorLogic/HTTPRequest" to="NarratorLogic" method="_on_http_request_request_completed"]

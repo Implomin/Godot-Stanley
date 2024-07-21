@@ -8,6 +8,8 @@ public partial class ArrivedAt : Area3D
 	[Export] public string action = "unexpected";
 	[Export] public string location = "unexpected";
 	[Export] public bool important = false;
+	[Export] public bool oneTime = false;
+	private bool notDone = true;
 	[Signal] public delegate void SendArrivedAtEventHandler(String action, String location);
 	[Signal] public delegate void SendArrivedAtImportantEventHandler(String action, String location);
 
@@ -21,10 +23,16 @@ public partial class ArrivedAt : Area3D
 	public void _OnBodyEntered(Godot.CharacterBody3D body)
 	{
 		//GD.Print("Player - body entered arrivedAt; Sending signal to corresponding node");
+		
+		if(notDone){
+			if(oneTime){
+				notDone = false;
+		}
 		if(important){
 			EmitSignal(SignalName.SendArrivedAtImportant, null);
 		}else{
 			EmitSignal(SignalName.SendArrivedAt, null);
+		}
 		}
 	}
 }

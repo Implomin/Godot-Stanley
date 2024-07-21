@@ -16,6 +16,9 @@ public partial class PlayerRoot : CharacterBody3D
 	float sprintingVal = 1;
 	[Export] float sprintMultiplier = 1.3f;
 	[Export] AudioStreamPlayer SFXFootsteps;
+	public bool hasGoodJavaDoc = false;
+	public bool hasBadJavaDoc = false;
+
 
 
 	public override void _Ready()

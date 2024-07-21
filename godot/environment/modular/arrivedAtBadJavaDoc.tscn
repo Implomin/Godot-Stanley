@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://daq2gmyweuu8o"]
+
+[ext_resource type="Script" path="res://environment/modular/ArrivedAtJavaDoc.cs" id="1_cgf2g"]
+[ext_resource type="PackedScene" uid="uid://bstd6vduxonm5" path="res://environment/itemAssets/assets/javaDocs/badJavaDoc.glb" id="2_gq5nn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i71x7"]
+radius = 1.0
+
+[node name="SignalArrivedAt" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_cgf2g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_i71x7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.258947, 0)
+light_color = Color(1, 0.74902, 0.74902, 1)
+light_energy = 0.44
+
+[node name="badJavaDoc" parent="." instance=ExtResource("2_gq5nn")]
+transform = Transform3D(1, 0, 0, 0, 0.287361, -0.957823, 0, 0.957823, 0.287361, 0, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_OnBodyEntered"]

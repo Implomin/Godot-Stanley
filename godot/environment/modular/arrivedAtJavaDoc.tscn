@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnreyxbk6shms"]
+
+[ext_resource type="Script" path="res://environment/modular/ArrivedAtJavaDoc.cs" id="1_opery"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i71x7"]
+radius = 1.0
+
+[node name="SignalArrivedAt" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_opery")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_i71x7")
+
+[connection signal="body_entered" from="." to="." method="_OnBodyEntered"]
