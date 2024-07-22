@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bn8myhbfa3job" path="res://environment/itemAssets/scenes/pickupable/pickupable-test.tscn" id="8_x8w3t"]
 [ext_resource type="PackedScene" uid="uid://vu5lmie33ehm" path="res://environment/modular/arrivedAtGoodJavaDoc.tscn" id="9_3ljo8"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="PlayerRoot" parent="." instance=ExtResource("3_yub3o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12867, 0, 7.29743)

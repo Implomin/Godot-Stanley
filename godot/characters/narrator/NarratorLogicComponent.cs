@@ -119,7 +119,5 @@ public partial class NarratorLogicComponent : Node
 			audioStreamPlayer.Stream = wav;
 			audioStreamPlayer.Play();
 		}
-
-		
 	}
 }
